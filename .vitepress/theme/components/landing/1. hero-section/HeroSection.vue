@@ -29,7 +29,7 @@ import HeroDiagram from './HeroDiagram.vue'
 
       <!-- CTA Buttons -->
       <div class="hero__actions">
-        <a href="/guide/" class="btn btn--primary">释放疯力</a>
+        <a href="/deploy/" class="btn btn--primary">释放疯力</a>
         <a
           href="https://github.com/"
           target="_blank"

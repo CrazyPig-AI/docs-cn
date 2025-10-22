@@ -304,6 +304,127 @@ export default defineConfig({
     ],
 
     sidebar: {
+        '/deploy/': [
+            {
+                text: '🔅环境',
+                items: [
+                    {
+                        text: '相关环境',
+                        link: '/deploy/',
+                    },
+                    {
+                        text: '监控网站状态',
+                        link: 'http://192.168.178.146:51005/status/0',
+                    },
+                ],
+            },
+            {
+                text: '🔥MCP',
+                items: [
+                    {
+                        text: 'MCP GATEWAY',
+                        link: 'http://192.168.184.124:8080/gateway',
+                    },
+                    {
+                        text: '12306',
+                        link: 'http://192.168.184.124:3000/sse',
+                    },
+                ],
+            },
+            {
+                text: '✨工具',
+                items: [
+                    {
+                        text: '提示词优化器',
+                        link: 'http://192.168.178.146:18082/',
+                    },
+                    {
+                        text: 'austin消息推送',
+                        link: 'http://192.168.178.146:3000/',
+                    },
+                    {
+                        text: 'Stirling PDF',
+                        link: 'http://192.168.178.146:30001/',
+                    },
+                ],
+            },
+            {
+                text: '🎉DB',
+                items: [
+                    {
+                        text: 'Chat2DB',
+                        link: 'http://192.168.184.124:10824/',
+                    },
+                    {
+                        text: 'Supabase',
+                        link: 'http://192.168.184.124:8000/',
+                    },
+                ],
+            },
+            {
+                text: '🔨运维管理',
+                items: [
+                    {
+                        text: 'Jenkins',
+                        link: 'http://192.168.181.101:1011',
+                    },
+                    {
+                        text: 'Portainer',
+                        link: 'http://192.168.184.124:9000',
+                    },
+                    {
+                        text: 'Harbor',
+                        link: 'https://sieaio.xueying.site:6084',
+                    },
+                    {
+                        text: 'Dify',
+                        link: 'https://sieaio.xueying.site:6082',
+                    },
+                    {
+                        text: 'Coze',
+                        link: 'http://192.168.178.146:8888/',
+                    },
+                ],
+            },
+            {
+                text: '🏄在线开发工具',
+                items: [
+                    {
+                        text: 'Vscode 密码：123456',
+                        link: 'http://192.168.178.146:52000',
+                    },
+                    {
+                        text: 'Jetbrains idea',
+                        link: 'http://192.168.178.146:53000?notSecureWarning=false',
+                    },
+                    {
+                        text: 'Jetbrains pycharm',
+                        link: 'http://192.168.178.146:54000?notSecureWarning=false',
+                    },
+                ],
+            },
+            {
+                text: '📣在线画图工具',
+                items: [
+                    {
+                        text: 'Excalidraw',
+                        link: 'http://192.168.178.146:51001',
+                    },
+                    {
+                        text: 'Mermaid',
+                        link: 'http://192.168.178.146:51002',
+                    },
+                    {
+                        text: 'PlantUML',
+                        link: 'http://192.168.178.146:51003',
+                    },
+                    {
+                        text: 'Drawio',
+                        link: 'http://192.168.178.146:51004',
+                    },
+                ],
+            },
+        ],
       /*'/guide/': [
         {
           text: '介绍',
