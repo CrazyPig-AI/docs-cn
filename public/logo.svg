@@ -1,15 +1,110 @@
 <svg width="410" height="404" viewBox="0 0 410 404" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M399.641 59.5246L215.643 388.545C211.844 395.338 202.084 395.378 198.228 388.618L10.5817 59.5563C6.38087 52.1896 12.6802 43.2665 21.0281 44.7586L205.223 77.6824C206.398 77.8924 207.601 77.8904 208.776 77.6763L389.119 44.8058C397.439 43.2894 403.768 52.1434 399.641 59.5246Z" fill="url(#paint0_linear)"/>
-<path d="M292.965 1.5744L156.801 28.2552C154.563 28.6937 152.906 30.5903 152.771 32.8664L144.395 174.33C144.198 177.662 147.258 180.248 150.51 179.498L188.42 170.749C191.967 169.931 195.172 173.055 194.443 176.622L183.18 231.775C182.422 235.487 185.907 238.661 189.532 237.56L212.947 230.446C216.577 229.344 220.065 232.527 219.297 236.242L201.398 322.875C200.278 328.294 207.486 331.249 210.492 326.603L212.5 323.5L323.454 102.072C325.312 98.3645 322.108 94.137 318.036 94.9228L279.014 102.454C275.347 103.161 272.227 99.746 273.262 96.1583L298.731 7.86689C299.767 4.27314 296.636 0.855181 292.965 1.5744Z" fill="url(#paint1_linear)"/>
-<defs>
-<linearGradient id="paint0_linear" x1="6.00017" y1="32.9999" x2="235" y2="344" gradientUnits="userSpaceOnUse">
-<stop stop-color="#41D1FF"/>
-<stop offset="1" stop-color="#BD34FE"/>
-</linearGradient>
-<linearGradient id="paint1_linear" x1="194.651" y1="8.81818" x2="236.076" y2="292.989" gradientUnits="userSpaceOnUse">
-<stop stop-color="#FFEA83"/>
-<stop offset="0.0833333" stop-color="#FFDD35"/>
-<stop offset="1" stop-color="#FFA800"/>
-</linearGradient>
-</defs>
+    <style>
+        @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+        }
+        @keyframes rotateEyes {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(15deg); }
+        75% { transform: rotate(-15deg); }
+        }
+        @keyframes blink {
+        0%, 90%, 100% { transform: scaleY(1); }
+        95% { transform: scaleY(0.1); }
+        }
+        @keyframes glow {
+        0%, 100% { filter: drop-shadow(0 0 3px #BD34FE); }
+        50% { filter: drop-shadow(0 0 8px #41D1FF); }
+        }
+        @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-2px); }
+        75% { transform: translateX(2px); }
+        }
+        @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        }
+        .pig-face {
+        animation: bounce 2s ease-in-out infinite;
+        }
+        .eyes {
+        animation: rotateEyes 2s ease-in-out infinite;
+        }
+        .eyelids {
+        animation: blink 3s ease-in-out infinite;
+        }
+        .lightning {
+        animation: glow 1s ease-in-out infinite;
+        }
+        .text {
+        animation: shake 0.3s ease-in-out infinite;
+        font-size: 32px;
+        font-weight: 900;
+        }
+        .nose {
+        animation: pulse 1.5s ease-in-out infinite;
+        }
+        .ears {
+        animation: bounce 1.8s ease-in-out infinite;
+        }
+    </style>
+    <!-- 猪脸背景光晕 -->
+    <circle cx="205" cy="180" r="85" fill="url(#faceGlow)" opacity="0.4"/>
+    <!-- 简化的猪脸主体 -->
+    <path d="M205 80 L380 150 L320 350 L90 350 L30 150 Z" fill="url(#paint0_linear)" class="pig-face"/>
+    <!-- 更明显的猪耳朵 -->
+    <g class="ears">
+        <path d="M80 60 C60 30 40 50 70 100 C100 150 100 90 80 60 Z" fill="#FF6B9D" stroke="#FF4A8D" stroke-width="2"/>
+        <path d="M330 50 C350 20 370 40 340 90 C310 140 310 80 330 50 Z" fill="#FF6B9D" stroke="#FF4A8D" stroke-width="2"/>
+    </g>
+    <!-- 突出的猪鼻子 -->
+    <g class="nose">
+        <circle cx="205" cy="180" r="35" fill="#FF8FAB" stroke="#FF6B8B" stroke-width="3"/>
+        <circle cx="190" cy="175" r="6" fill="#333"/>
+        <circle cx="220" cy="175" r="6" fill="#333"/>
+    </g>
+    <!-- 更大的眼睛 -->
+    <g class="eyes">
+        <!-- 左眼 -->
+        <g>
+            <circle cx="140" cy="130" r="18" fill="white" stroke="#333" stroke-width="2"/>
+            <circle cx="140" cy="130" r="10" fill="#333" class="eyelids"/>
+            <circle cx="143" cy="127" r="3" fill="white"/>
+        </g>
+        <!-- 右眼 -->
+        <g>
+            <circle cx="270" cy="120" r="18" fill="white" stroke="#333" stroke-width="2"/>
+            <circle cx="270" cy="120" r="10" fill="#333" class="eyelids"/>
+            <circle cx="273" cy="117" r="3" fill="white"/>
+        </g>
+    </g>
+    <!-- 明显的腮红 -->
+    <g class="pig-face">
+        <circle cx="120" cy="160" r="12" fill="#FF6B9D" opacity="0.6"/>
+        <circle cx="290" cy="150" r="12" fill="#FF6B9D" opacity="0.6"/>
+    </g>
+    <!-- 简化的嘴巴 -->
+    <path d="M160 220 Q205 240 250 220" stroke="#333" stroke-width="4" fill="none" stroke-linecap="round" class="pig-face"/>
+    <!-- 简化的闪电装饰 -->
+    <path d="M300 50 L250 100 L280 120 L220 180 L250 200 L180 280" stroke="url(#paint1_linear)" stroke-width="8" fill="none" stroke-linecap="round" class="lightning"/>
+    <!-- 更突出的文字 -->
+    <text x="205" y="370" text-anchor="middle" font-family="Arial Black, sans-serif" fill="#BD34FE" class="text" stroke="#FFF" stroke-width="3">🐷 疯猪 💥</text>
+    <text x="205" y="370" text-anchor="middle" font-family="Arial Black, sans-serif" fill="#BD34FE" class="text">🐷 疯猪 💥</text>
+    <defs>
+        <linearGradient id="paint0_linear" x1="100" y1="80" x2="300" y2="350" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#41D1FF"/>
+            <stop offset="1" stop-color="#BD34FE"/>
+        </linearGradient>
+        <linearGradient id="paint1_linear" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+            <stop stop-color="#FFEA83"/>
+            <stop offset="0.5" stop-color="#FFDD35"/>
+            <stop offset="1" stop-color="#FFA800"/>
+        </linearGradient>
+        <radialGradient id="faceGlow" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stop-color="#BD34FE" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#41D1FF" stop-opacity="0.3"/>
+        </radialGradient>
+    </defs>
 </svg>

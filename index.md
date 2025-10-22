@@ -1,6 +1,6 @@
 ---
-title: Vite
-titleTemplate: 下一代的前端工具链
+title: 疯猪
+titleTemplate: AI
 # add `dark` here to apply dark mode on initial load,
 # since `onMounted` doesn't run during SSR
 pageClass: landing dark
@@ -43,20 +43,20 @@ onBeforeUnmount(() => {
 
 <div class="VPHome">
   <Hero/>
-  <FeatureSection title="重新诠释开发者体验" description="Vite 让 Web 开发重回简单" type="blue">
+  <FeatureSection title="从思考到创造" description="让疯猪AI成为你的加速伙伴" type="blue">
     <FeatureInstantServerStart />
     <FeatureHMR />
     <FeatureRichFeatures />
     <FeatureOptimizedBuild />
   </FeatureSection>
-  <FeatureSection title="共同构建的坚实基础" type="pink" class="feature-section--flip">
+  <FeatureSection title="每一次互动" description="都是疯猪AI智慧的基石" type="pink" class="feature-section--flip">
     <FeatureFlexiblePlugins />
     <FeatureTypedAPI />
     <FeatureSSRSupport />
     <FeatureCI />
   </FeatureSection>
   <FrameworksSection />
-  <CommunitySection />
+  <!--<CommunitySection />
   <SponsorSection />
-  <GetStartedSection />
+  <GetStartedSection />-->
 </div>

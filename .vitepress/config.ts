@@ -92,8 +92,8 @@ function inlineScript(file: string): HeadConfig {
 }
 
 export default defineConfig({
-  title: 'Vite 官方中文文档',
-  description: '下一代前端工具链',
+  title: '疯猪AI',
+  description: '疯猪AI',
   lang: 'zh-CN',
 
   head: [
@@ -150,13 +150,13 @@ export default defineConfig({
 
   locales: {
     root: { label: '简体中文' },
-    en: { label: 'English', link: 'https://vite.dev' },
-    ja: { label: '日本語', link: 'https://ja.vite.dev' },
-    es: { label: 'Español', link: 'https://es.vite.dev' },
-    pt: { label: 'Português', link: 'https://pt.vite.dev' },
-    ko: { label: '한국어', link: 'https://ko.vite.dev' },
-    de: { label: 'Deutsch', link: 'https://de.vite.dev' },
-    fa: { label: 'فارسی', link: 'https://fa.vite.dev' },
+    en: { label: 'English', link: '/' },
+    ja: { label: '日本語', link: '/' },
+    es: { label: 'Español', link: '/' },
+    pt: { label: 'Português', link: '/' },
+    ko: { label: '한국어', link: '/' },
+    de: { label: 'Deutsch', link: '/' },
+    fa: { label: 'فارسی', link: '/' },
   },
 
   themeConfig: {
@@ -177,7 +177,7 @@ export default defineConfig({
       { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@vite' },
       { icon: 'x', link: 'https://x.com/vite_js' },
       { icon: 'discord', link: 'https://chat.vite.dev' },
-      { icon: 'github', link: 'https://github.com/vitejs/vite' },
+      { icon: 'github', link: 'https://github.com' },
     ],
 
     search: {

@@ -7,9 +7,9 @@ import HeroDiagram from './HeroDiagram.vue'
     <div class="container">
       <!-- ViteConf 2025 Button -->
       <a
-        href="https://www.youtube.com/playlist?list=PLqGQbXn_GDmkJaoykvHCUmXUPjhgH2bVr"
+        href="JavaScript:void(0)"
         class="hero__pill"
-        target="_blank"
+        target="_top"
       >
         <img
           src="../../../../../images/viteconf.svg"
@@ -17,26 +17,26 @@ import HeroDiagram from './HeroDiagram.vue'
           width="20"
           height="20"
         />
-        <span>ViteConf 2025 Replay</span>
+        <span>CRAZY PIG 9999 AI</span>
       </a>
 
       <!-- Heading -->
-      <h1>卓越的 Web 开发<br />构建工具</h1>
+      <h1>要想富 先发疯<br /> AI</h1>
       <!-- Tagline -->
-      <h3>
-        Vite 是一个超快的前端构建工具 <br> 赋能下一代 Web 应用的发展
-      </h3>
+<!--      <h3>
+        疯猪引擎 超速构建体验 <br> 让开发像疯猪一样狂奔
+      </h3>-->
 
       <!-- CTA Buttons -->
       <div class="hero__actions">
-        <a href="/guide/" class="btn btn--primary">开始</a>
+        <a href="/guide/" class="btn btn--primary">释放疯力</a>
         <a
-          href="https://github.com/vitejs/vite"
+          href="https://github.com/"
           target="_blank"
           class="btn btn--outline"
         >
           <img src="./github.svg" alt="GitHub logo" width="20" height="20" />
-          GitHub
+          加入猪群
         </a>
       </div>
     </div>

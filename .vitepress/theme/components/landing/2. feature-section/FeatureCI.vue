@@ -321,8 +321,8 @@ const { startAnimation, isCardActive } = useCardAnimation(
     <div class="feature__meta meta--center">
       <div class="meta__title">持续的生态系统集成</div>
       <div class="meta__description">
-        我们的持续集成（CI）系统在不断针对下游项目测试 Vite 的更改，
-        使我们能够在确保稳定性的同时，自信地改进 Vite
+        系统永不停歇地守护着稳定，
+        让你和疯猪AI的每一次创造都充满信心
       </div>
     </div>
   </div>

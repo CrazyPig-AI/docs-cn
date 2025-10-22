@@ -9,3 +9,6 @@ yarn.lock
 .vitepress/dist
 *.local
 .vitepress/cache
+/.fastRequest/
+/.idea/
+*.iml

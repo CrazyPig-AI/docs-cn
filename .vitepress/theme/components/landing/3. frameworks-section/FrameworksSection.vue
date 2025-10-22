@@ -34,11 +34,92 @@ import logoAdonis from './images/adonis.svg'
 import logoEmber from './images/ember.svg'
 import logoPreact from './images/preact.svg'
 import logoHono from './images/hono.svg'
+import idea from './images/intellij-idea.svg'
+import ai from './images/ai.svg'
+import datagrip from './images/datagrip.svg'
+import pycharm from './images/pycharm.svg'
+import resharper from './images/resharper.svg'
+import cpp from './images/resharper-cpp.svg'
+import scala from './images/scala.svg'
+import toolbox from './images/toolbox.svg'
+import webstorm from './images/webstorm.svg'
+import vscode from './images/favicon.ico'
 
 /**
  * The frameworks and tools to display in this section.
  */
 const frameworks: Framework[] = [
+  {
+    name: 'VsCode',
+    logo: vscode,
+    color: '#fac52b',
+    url: 'https://code.visualstudio.com/',
+    visible: ref(false),
+  },
+  {
+    name: 'intellij-idea',
+    logo: idea,
+    color: '#00d6fd',
+    url: 'https://www.jetbrains.com/',
+    visible: ref(false),
+  },
+  {
+    name: 'ai',
+    logo: ai,
+    color: '#fac52b',
+    url: 'https://www.jetbrains.com/',
+    visible: ref(false),
+  },
+  {
+    name: 'datagrip',
+    logo: datagrip,
+    color: '#00d6fd',
+    url: 'https://www.jetbrains.com/',
+    visible: ref(false),
+  },
+  {
+    name: 'pycharm',
+    logo: pycharm,
+    color: '#fac52b',
+    url: 'https://www.jetbrains.com/',
+    visible: ref(false),
+  },
+  {
+    name: 'resharper',
+    logo: resharper,
+    color: '#00d6fd',
+    url: 'https://www.jetbrains.com/',
+    visible: ref(false),
+  },
+  {
+    name: 'resharper-cpp',
+    logo: cpp,
+    color: '#fac52b',
+    url: 'https://www.jetbrains.com/',
+    visible: ref(false),
+  },
+  {
+    name: 'scala',
+    logo: scala,
+    color: '#00d6fd',
+    url: 'https://www.jetbrains.com/',
+    visible: ref(false),
+  },
+  {
+    name: 'toolbox',
+    logo: toolbox,
+    color: '#fac52b',
+    url: 'https://www.jetbrains.com/',
+    visible: ref(false),
+  },
+  {
+    name: 'webstorm',
+    logo: webstorm,
+    color: '#00d6fd',
+    url: 'https://www.jetbrains.com/',
+    visible: ref(false),
+  },
+
   {
     name: 'Vitest',
     logo: logoVitest,
@@ -321,7 +402,7 @@ const rowStyle: ComputedRef<{ transform: string }> = computed(() => {
 
 <template>
   <section class="frameworks-section" id="frameworks-section">
-    <h2>支持你喜爱的框架和工具</h2>
+    <h2>疯猪AI开放生态 <br/>支持你喜爱的任何框架与工具</h2>
     <div class="frameworks-container">
       <!-- Top Row -->
       <div class="framework-row" :style="rowStyle">

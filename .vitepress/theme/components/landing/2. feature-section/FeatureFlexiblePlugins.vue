@@ -349,9 +349,9 @@ const { isCardActive, startAnimation } = useCardAnimation(
       </div>
     </div>
     <div class="feature__meta">
-      <div class="meta__title">灵活的插件系统</div>
+      <div class="meta__title">疯猪AI的开放哲学</div>
       <div class="meta__description">
-        Vite 插件扩展了 Rollup 精妙的插件接口，并增加了一些 Vite 特有的选项配置
+        不只提供工具，更为你的奇思妙想预留了专属插件位
       </div>
     </div>
   </div>
