@@ -17,15 +17,15 @@ import HeroDiagram from './HeroDiagram.vue'
           width="20"
           height="20"
         />
-        <span>CRAZY PIG 9999 AI</span>
+        <span>CRAZY PIG AI</span>
       </a>
 
       <!-- Heading -->
-      <h1>要想富 先发疯<br /> AI</h1>
+      <h1 class="golden-ai">要想富 先发疯</h1>
       <!-- Tagline -->
-<!--      <h3>
-        疯猪引擎 超速构建体验 <br> 让开发像疯猪一样狂奔
-      </h3>-->
+      <h3 class="golden-ai">
+        疯猪AI
+      </h3>
 
       <!-- CTA Buttons -->
       <div class="hero__actions">
@@ -136,6 +136,26 @@ import HeroDiagram from './HeroDiagram.vue'
 
   @media (min-width: 768px) {
     margin-top: 0;
+  }
+}
+
+.golden-ai {
+  #font-size: 4em;
+  font-weight: bold;
+  background: linear-gradient(45deg, #FFD700, #FFEC8B, #FFD700, #DAA520, #FFD700);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  animation: shine 2s linear infinite;
+}
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
   }
 }
 </style>

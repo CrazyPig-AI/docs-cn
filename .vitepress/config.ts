@@ -163,7 +163,7 @@ export default defineConfig({
     logo: '/logo.svg',
 
     editLink: {
-      pattern: 'https://github.com/vitejs/docs-cn/edit/main/:path',
+      //pattern: 'https://github.com/vitejs/docs-cn/edit/main/:path',
       text: '为此页提供修改建议',
     },
 
@@ -213,27 +213,28 @@ export default defineConfig({
     footer: {
       message: `Released under the MIT License. (${commitRef})`,
       copyright:
-        'Copyright © 2019-present VoidZero Inc. & Vite Contributors'
+        'Copyright © 2025-present CrazyPig AI Team.'
     },
 
     nav: [
-      {
+      /*{
         component: 'ReleaseTag'
-      },
-      { text: '指引', link: '/guide/', activeMatch: '/guide/' },
-      { text: '配置', link: '/config/', activeMatch: '/config/' },
-      { text: '插件', link: '/plugins/', activeMatch: '/plugins/' },
+      },*/
+      { text: '🌈首页', link: '/'},
+      { text: '🚀帮助文档', link: '/deploy/', activeMatch: '/deploy/' },
+      /*{ text: '配置', link: '/config/', activeMatch: '/config/' },
+      { text: '插件', link: '/plugins/', activeMatch: '/plugins/' },*/
       {
-        text: '相关链接',
+        text: '🛠️相关链接',
         items: [
           { text: '团队成员', link: '/team' },
           { text: '最新博客', link: '/blog' },
           { text: '发布策略', link: '/releases' },
           {
-            text: '纪录片',
-            link: 'https://www.youtube.com/watch?v=bmWQqAKLgT4',
+            text: 'youtube',
+            link: 'https://www.youtube.com',
           },
-          {
+          /*{
             items: [
               {
                 text: 'Bluesky',
@@ -272,10 +273,10 @@ export default defineConfig({
                 link: 'https://github.com/vitejs/vite/blob/main/CONTRIBUTING.md',
               },
             ],
-          },
+          },*/
         ]
       },
-      {
+      /*{
         text: '历史版本',
         items: [
           {
@@ -299,11 +300,11 @@ export default defineConfig({
             link: 'https://v2.vite.dev'
           },
         ]
-      }
+      }*/
     ],
 
     sidebar: {
-      '/guide/': [
+      /*'/guide/': [
         {
           text: '介绍',
           items: [
@@ -510,7 +511,7 @@ export default defineConfig({
           text: '过去',
           items: [],
         },
-      ],
+      ],*/
     },
   },
   transformPageData(pageData) {

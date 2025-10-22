@@ -38,19 +38,32 @@ const inputLines: Ref<SvgNodeProps>[] = inputPaths.map((path) =>
 // Define the file set "combinations" that can be shown on the input side
 const inputFileSets = ref([
   [
-    { label: '.jsx' },
-    { label: '.sass' },
+    { label: '.ai' },
+    { label: '.ml' },
     { label: '.svelte', color: '#ff8d67' },
   ],
-  [{ label: '.tsx' }, { label: '.scss' }, { label: '.vue', color: '#40b782' }],
   [
-    { label: '.js' },
-    { label: '.styl' },
+    { label: '.py' },
+    { label: '.ipynb' },
+    { label: '.vue', color: '#40b782' }
+  ],
+  [
+    { label: '.r' },
+    { label: '.pt' },
     { label: '.svelte', color: '#ff8d67' },
   ],
-  [{ label: '.ts' }, { label: '.less' }, { label: '.vue', color: '#40b782' }],
-  [{ label: '.mts' }, { label: '.html' }, { label: '.json' }],
+  [
+    { label: '.jl' },
+    { label: '.h5' },
+    { label: '.vue', color: '#40b782' }
+  ],
+  [
+    { label: '.yaml' },
+    { label: '.jsonl' },
+    { label: '.onnx' }
+  ],
 ])
+
 
 // Setup objects representing each output line's animation state
 const outputLines: Ref[] = [

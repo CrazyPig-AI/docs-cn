@@ -27,11 +27,11 @@ function dismiss() {
       </text>
     </svg>
     <div class="vt-banner-text">
-      <p style="display: inline-block">要想富 | 先发疯</p>
+      <p style="display: inline-block">要想富 | 先发疯 | ai</p>
       <a
-        target="_blank"
+        target="_top"
         class="vt-primary-action"
-        href="https://voidzero.dev/posts/announcing-vite-plus?utm_source=vite&utm_content=top_banner"
+        href="JavaScript:void(0)"
       >
         Learn more
       </a>
