@@ -325,7 +325,7 @@ export default defineConfig({
                     },
                     {
                         text: '资源监控',
-                        link: 'http://192.168.178.146:51005/status/0',
+                        link: 'https://github.com/louislam/uptime-kuma',
                     },
                 ],
             },
@@ -334,15 +334,15 @@ export default defineConfig({
                 items: [
                     {
                         text: '提示词优化器',
-                        link: 'http://192.168.178.146:18082/',
+                        link: 'https://github.com/linshenkx/prompt-optimizer',
                     },
                     {
                         text: 'austin消息推送',
-                        link: 'http://192.168.178.146:3000/',
+                        link: 'http://github.com/ZhongFuCheng3y/austin-admin.git',
                     },
                     {
                         text: 'Stirling PDF',
-                        link: 'http://192.168.178.146:30001/',
+                        link: 'https://github.com/Stirling-Tools/Stirling-PDF',
                     },
                 ],
             },
@@ -351,11 +351,11 @@ export default defineConfig({
                 items: [
                     {
                         text: 'MCP GATEWAY',
-                        link: 'http://192.168.184.124:8080/gateway',
+                        link: 'https://github.com/AmoyLab/Unla',
                     },
                     {
                         text: '12306',
-                        link: 'http://192.168.184.124:3000/sse',
+                        link: 'http://github.com/shenpeiheng/mcp-server-chinarailway.git',
                     },
                 ],
             },
@@ -364,11 +364,11 @@ export default defineConfig({
                 items: [
                     {
                         text: 'Chat2DB',
-                        link: 'http://192.168.184.124:10824/',
+                        link: 'https://github.com/CodePhiliaX/Chat2DB',
                     },
                     {
                         text: 'Supabase',
-                        link: 'http://192.168.184.124:8000/',
+                        link: 'https://github.com/supabase/supabase',
                     },
                 ],
             },
@@ -377,23 +377,23 @@ export default defineConfig({
                 items: [
                     {
                         text: 'Jenkins',
-                        link: 'http://192.168.181.101:1011',
+                        link: 'https://www.jenkins.io/',
                     },
                     {
                         text: 'Portainer',
-                        link: 'http://192.168.184.124:9000',
+                        link: 'https://www.portainer.io/',
                     },
                     {
                         text: 'Harbor',
-                        link: 'https://sieaio.xueying.site:6084',
+                        link: 'https://goharbor.io/',
                     },
                     {
                         text: 'Dify',
-                        link: 'https://sieaio.xueying.site:6082',
+                        link: 'https://dify.ai/',
                     },
                     {
                         text: 'Coze',
-                        link: 'http://192.168.178.146:8888/',
+                        link: 'https://www.coze.cn/',
                     },
                 ],
             },
@@ -401,16 +401,16 @@ export default defineConfig({
                 text: '🏄在线开发工具',
                 items: [
                     {
-                        text: 'Vscode 密码：123456',
-                        link: 'http://192.168.178.146:52000',
+                        text: 'Vscode',
+                        link: 'https://code.visualstudio.com/',
                     },
                     {
-                        text: 'Jetbrains idea',
-                        link: 'http://192.168.178.146:53000?notSecureWarning=false',
+                        text: 'Jetbrains',
+                        link: 'https://github.com/JetBrains/projector-docker.git',
                     },
                     {
-                        text: 'Jetbrains pycharm',
-                        link: 'http://192.168.178.146:54000?notSecureWarning=false',
+                        text: 'coder',
+                        link: 'https://coder.com/',
                     },
                 ],
             },
@@ -419,19 +419,19 @@ export default defineConfig({
                 items: [
                     {
                         text: 'Excalidraw',
-                        link: 'http://192.168.178.146:51001',
+                        link: 'https://excalidraw.com/',
                     },
                     {
                         text: 'Mermaid',
-                        link: 'http://192.168.178.146:51002',
+                        link: 'https://mermaid.live/edit',
                     },
                     {
                         text: 'PlantUML',
-                        link: 'http://192.168.178.146:51003',
+                        link: 'https://plantuml.com/zh/',
                     },
                     {
                         text: 'Drawio',
-                        link: 'http://192.168.178.146:51004',
+                        link: 'https://app.diagrams.net/',
                     },
                 ],
             },
