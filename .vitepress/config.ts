@@ -323,9 +323,40 @@ export default defineConfig({
                         text: '梯子资源',
                         link: '/deploy/static-deploy',
                     },
+                ],
+            },
+            {
+                text: '🔥AI MCP',
+                items: [
                     {
-                        text: '资源监控',
-                        link: 'https://github.com/louislam/uptime-kuma',
+                        text: '工作流',
+                        items: [
+                            {
+                                text: 'Dify',
+                                link: 'https://dify.ai/',
+                            },
+                            {
+                                text: 'Fastgpt',
+                                link: 'https://cloud.fastgpt.cn/',
+                            },
+                            {
+                                text: 'Coze',
+                                link: 'https://www.coze.cn/',
+                            },
+                        ]
+                    },
+                    {
+                        text: 'MCP',
+                        items: [
+                            {
+                                text: 'MCP GATEWAY',
+                                link: 'https://github.com/AmoyLab/Unla',
+                            },
+                            {
+                                text: '12306',
+                                link: 'http://github.com/shenpeiheng/mcp-server-chinarailway.git',
+                            },
+                        ]
                     },
                 ],
             },
@@ -343,19 +374,6 @@ export default defineConfig({
                     {
                         text: 'Stirling PDF',
                         link: 'https://github.com/Stirling-Tools/Stirling-PDF',
-                    },
-                ],
-            },
-            {
-                text: '🔥MCP',
-                items: [
-                    {
-                        text: 'MCP GATEWAY',
-                        link: 'https://github.com/AmoyLab/Unla',
-                    },
-                    {
-                        text: '12306',
-                        link: 'http://github.com/shenpeiheng/mcp-server-chinarailway.git',
                     },
                 ],
             },
@@ -388,12 +406,8 @@ export default defineConfig({
                         link: 'https://goharbor.io/',
                     },
                     {
-                        text: 'Dify',
-                        link: 'https://dify.ai/',
-                    },
-                    {
-                        text: 'Coze',
-                        link: 'https://www.coze.cn/',
+                        text: '资源监控',
+                        link: 'https://github.com/louislam/uptime-kuma',
                     },
                 ],
             },
