@@ -7,7 +7,7 @@ import './styles/vars.css'
 import './styles/landing.css'
 import AsideSponsors from './components/AsideSponsors.vue'
 import SvgImage from './components/SvgImage.vue'
-import WwAds from './components/WwAds.vue'
+//import WwAds from './components/WwAds.vue'
 import ReleaseTag from './components/ReleaseTag.vue'
 import './custom.css'
 import YouTubeVideo from './components/YouTubeVideo.vue'
@@ -19,7 +19,7 @@ export default {
   extends: DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
-      'aside-outline-after': () => h(WwAds),
+      //'aside-outline-after': () => h(WwAds),
       'layout-top': () => h(SponsorBanner),
       'aside-ads-before': () => h(AsideSponsors),
     })

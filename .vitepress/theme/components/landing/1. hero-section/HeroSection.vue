@@ -140,7 +140,6 @@ import HeroDiagram from './HeroDiagram.vue'
 }
 
 .golden-ai {
-  #font-size: 4em;
   font-weight: bold;
   background: linear-gradient(45deg, #FFD700, #FFEC8B, #FFD700, #DAA520, #FFD700);
   background-size: 200% 200%;
