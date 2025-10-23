@@ -312,8 +312,12 @@ export default defineConfig({
                 text: '🔅环境',
                 items: [
                     {
-                        text: '相关环境',
+                        text: '域名资源',
                         link: '/deploy/',
+                    },
+                    {
+                        text: '主机资源',
+                        link: '/deploy/host',
                     },
                     {
                         text: '监控网站状态',
