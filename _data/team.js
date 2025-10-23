@@ -1,18 +1,18 @@
 export const core = [
   {
-    avatar: 'images/avatar/1.jpg',
-    name: 'hanbao',
+    avatar: 'https://avatars.githubusercontent.com/u/213040706?v=4',
+    name: 'wechat-ai',
     title: 'Creator',
     org: 'CrazyPig.ai',
     orgLink: '',
     desc: 'Independent open source developer, creator of CrazyPig.ai.',
     links: [
-      { icon: 'github', link: 'https://github.com/shenpeiheng' },
+      { icon: 'github', link: 'https://github.com/wechat-ai' },
     ],
-    sponsor: 'https://github.com/sponsors/',
+    sponsor: 'https://github.com/sponsors/wechat-ai',
   },
   {
-    avatar: 'images/avatar/2.jpg',
+    avatar: '../images/avatar/2.jpg',
     name: '苗สุขสันต์วันเกิด',
     title: 'A collaborative being',
     org: 'szjn',
@@ -25,7 +25,7 @@ export const core = [
     sponsor: 'https://github.com/sponsors/',
   },
   {
-    avatar: 'images/avatar/3.jpg',
+    avatar: '../images/avatar/3.jpg',
     name: '中原',
     title: 'A fanatical open sourceror',
     org: 'szjn',
@@ -39,7 +39,7 @@ export const core = [
     sponsor: 'https://github.com/sponsors/',
   },
   {
-    avatar: 'images/avatar/4.jpg',
+    avatar: '../images/avatar/4.jpg',
     name: 'never give up🌾',
     org: 'gree',
     title: 'Open Source Developer',

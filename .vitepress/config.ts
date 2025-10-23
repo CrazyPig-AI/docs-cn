@@ -173,11 +173,14 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'bluesky', link: 'https://bsky.app/profile/vite.dev' },
-      { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@vite' },
-      { icon: 'x', link: 'https://x.com/vite_js' },
-      { icon: 'discord', link: 'https://chat.vite.dev' },
       { icon: 'github', link: 'https://github.com' },
+      { icon: 'gitee', link: 'https://gitee.com/' },
+      { icon: 'discourse',link: 'https://linux.do/'},
+      { icon: 'docker', link: 'https://www.docker.com/' },
+      { icon: 'google', link: 'https://www.google.com/' },
+      { icon: 'x', link: 'https://x.com/' },
+      { icon: 'mastodon', link: 'https://elk.zone/' },
+      { icon: 'cloudflare', link: 'https://dash.cloudflare.com/' },
     ],
 
     search: {
