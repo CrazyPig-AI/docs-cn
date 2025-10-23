@@ -320,21 +320,12 @@ export default defineConfig({
                         link: '/deploy/host',
                     },
                     {
-                        text: '监控网站状态',
+                        text: '梯子资源',
+                        link: '/deploy/static-deploy',
+                    },
+                    {
+                        text: '资源监控',
                         link: 'http://192.168.178.146:51005/status/0',
-                    },
-                ],
-            },
-            {
-                text: '🔥MCP',
-                items: [
-                    {
-                        text: 'MCP GATEWAY',
-                        link: 'http://192.168.184.124:8080/gateway',
-                    },
-                    {
-                        text: '12306',
-                        link: 'http://192.168.184.124:3000/sse',
                     },
                 ],
             },
@@ -352,6 +343,19 @@ export default defineConfig({
                     {
                         text: 'Stirling PDF',
                         link: 'http://192.168.178.146:30001/',
+                    },
+                ],
+            },
+            {
+                text: '🔥MCP',
+                items: [
+                    {
+                        text: 'MCP GATEWAY',
+                        link: 'http://192.168.184.124:8080/gateway',
+                    },
+                    {
+                        text: '12306',
+                        link: 'http://192.168.184.124:3000/sse',
                     },
                 ],
             },

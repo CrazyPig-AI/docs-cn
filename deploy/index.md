@@ -1,4 +1,14 @@
+---
+title: CrazyPig AI
+---
+
 # 开始 {#getting-started}
+::: tip 说明
+主要记录收藏一些域名
+:::
+<p style="text-align:center">
+  <img src="/logo.svg" style="height:200px">
+</p>
 
 ## 总览 {#overview}
 
