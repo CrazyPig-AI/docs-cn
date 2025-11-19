@@ -21,6 +21,8 @@ title: CrazyPig AI
 | edu.deal       | edu.deal       | [链接直达](https://regdm.edu.deal/)                       | [教程](https://linux.do/t/topic/663996)  linux.do -- ( *.edu.deal ) |
 | cloudflare     | Cloudflare     | [链接直达](https://dash.cloudflare.com/)                  | 免费域名托管                                                            |
 | pinme.eth.limo | pinme.eth.limo | [链接直达](https://pinme.eth.limo/)                       | [教程](https://linux.do/t/topic/758798)                             |
+| freedomain.one | freedomain     | [链接直达](https://freedomain.one/)                       | 11个月续费                                                            |
+| nic.ye.gs      | nic.ye.gs      | [链接直达](https://nic.ye.gs/)                            | [教程](https://nic.ye.gs/)                                          |
 
 ## 主机资源 {#host}
 
@@ -32,6 +34,10 @@ title: CrazyPig AI
 | serv00      | serv00      | [链接直达](https://panel3.serv00.com/)                   | Free                                        |
 | webhostmost | webhostmost | [链接直达](https://www.webhostmost.com/)                 | [教程](https://apepine.com/archives/298) Free |
 | free 3v     | 免费空间        | [链接直达](https://free.3v.do/)                          | Free                                        |
+| scnet       | 超算          | [链接直达](https://www.scnet.cn/)                        | Free                                        |
+| lunes.host  | lunes.host  | [链接直达](https://lunes.host/)                          | [教程](https://idcflare.com/t/topic/22988/1)  |
+| wispbyte    | wispbyte    | [链接直达](https://wispbyte.com/)                        | [教程](https://linux.do/t/topic/1148717/1)    |
+| dataonline  | dataonline  | [链接直达](https://my.dataonline.vn/)                    | [教程](https://idcflare.com/t/topic/40876)    |
 
 ## 其它资源 {#more}
 

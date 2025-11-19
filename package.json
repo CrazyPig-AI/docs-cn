@@ -32,7 +32,7 @@
 	},
 	"scripts": {
 		"dev": "vitepress dev . --port 5174",
-		"build": "vitepress build .",
+		"build": "vitepress build . --force",
 		"typecheck": "vue-tsc",
 		"serve": "vitepress serve ."
 	},
