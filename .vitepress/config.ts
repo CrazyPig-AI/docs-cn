@@ -173,8 +173,8 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com' },
-      { icon: 'gitee', link: 'https://gitee.com/' },
+      { icon: 'github', link: 'https://github.com/shenpeiheng' },
+      { icon: 'gitee', link: 'https://gitee.com/shenph' },
       { icon: 'discourse',link: 'https://linux.do/'},
       { icon: 'docker', link: 'https://www.docker.com/' },
       { icon: 'google', link: 'https://www.google.com/' },
