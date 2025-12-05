@@ -13,7 +13,7 @@ head:
       content: CrazyPig AI 1.1
   - - meta
     - property: og:url
-      content: 
+      content: ""
   - - meta
     - property: og:description
       content: CrazyPig AI Release Announcement
