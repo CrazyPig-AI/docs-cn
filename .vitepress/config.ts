@@ -226,7 +226,7 @@ export default defineConfig({
       { text: '🌈首页', link: '/'},
       { text: '🚀帮助文档', link: '/deploy/', activeMatch: '/deploy/' },
       { text: '👉Komari', link: 'https://komari.007988.xyz/' },
-        { text: '✨AI-Draw', link: 'http://vg.007988.xyz:8080/' },
+        { text: '✨AI-Draw', link: 'https://ai-smart-draw.vercel.app/' },
       /*{ text: '配置', link: '/config/', activeMatch: '/config/' },
       { text: '插件', link: '/plugins/', activeMatch: '/plugins/' },*/
       {
