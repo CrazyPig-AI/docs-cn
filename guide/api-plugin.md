@@ -4,6 +4,8 @@ Vite 插件扩展了设计出色的 Rollup 接口，带有一些 Vite 独有的�
 
 **推荐在阅读下面的章节之前，首先阅读下 [Rollup 插件文档](https://cn.rollupjs.org/plugin-development/)**
 
+<!-- TODO: update the link above to Rolldown's documentation -->
+
 ## 致插件创作者 {#authoring-a-plugin}
 
 Vite 努力秉承开箱即用的原则，因此在创作一款新插件前，请确保已经阅读过 [Vite 的功能指南](/guide/features)，避免重复劳作。同时还应查看社区是否存在可用插件，包括 [兼容 Rollup 的插件](https://github.com/rollup/awesome) 以及 [Vite 的专属插件](https://github.com/vitejs/awesome-vite#plugins)。
@@ -343,7 +345,7 @@ Vite 插件也可以提供钩子来服务于特定的 Vite 目标。这些钩子
   - 一个包含 `{ html, tags }` 的对象
 
   默认情况下 `order` 是 `undefined`，这个钩子会在 HTML 被转换后应用。为了注入一个应该通过 Vite 插件管道的脚本， `order: 'pre'` 指将在处理 HTML 之前应用。 `order: 'post'` 是在所有未定义的 `order` 的钩子函数被应用后才应用。
-  
+
   **基础示例：**
 
   ```js
@@ -387,7 +389,10 @@ Vite 插件也可以提供钩子来服务于特定的 Vite 目标。这些钩子
 
   interface HtmlTagDescriptor {
     tag: string
-    attrs?: Record<string, string>
+    /**
+     * 如果需要，属性值将自动转义。
+     */
+    attrs?: Record<string, string | boolean>
     children?: string | HtmlTagDescriptor[]
     /**
      * 默认： 'head-prepend'
@@ -561,13 +566,13 @@ export default function myPlugin() {
 
   return {
     name: 'my-plugin',
-    // Example: only call transform for .js files
+    // 例如：仅调用 .js 的文件的 transform
     transform: {
       filter: {
         id: jsFileRegex,
       },
       handler(code, id) {
-        // Additional check for backward compatibility
+        // 额外的向后兼容性检查
         if (!jsFileRegex.test(id)) return null
 
         return {
@@ -654,7 +659,7 @@ export default defineConfig({
 })
 ```
 
-### 自定义事件的 TypeScript 类型定义指南 {#typeScript-for-custom-events}
+### 自定义事件的 TypeScript 类型定义指南 {#typescript-for-custom-events}
 
 Vite 会在内部从 `CustomEventMap` 这个接口推断出 payload 的类型，可以通过扩展这个接口来为自定义事件进行类型定义：
 

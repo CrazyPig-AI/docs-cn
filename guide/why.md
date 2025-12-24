@@ -35,9 +35,9 @@ import esmSvg from '../images/esm.svg?raw'
 
 基于打包启动时，当源文件被修改后，重新构建整个包是低效的，原因显而易见：更新速度会随着应用体积的增加而线性下降。
 
-一些打包器的开发服务器将构建内容存入内存，这样它们只需要在文件更改时使模块图的一部分失活<sup>[[1]](#footnote-1)</sup>，但它也仍需要整个重新构建并重载页面。这样代价很高，并且重新加载页面会消除应用的当前状态，所以打包器支持了动态模块热替换（HMR）：允许一个模块 “热替换” 它自己，而不会影响页面其余部分。这大大改进了开发体验 —— 然而，在实践中我们发现，即使采用了 HMR 模式，其热更新速度也会随着应用规模的增长而显著下降。
+一些打包器的开发服务器将构建内容存入内存，这样它们只需要在文件更改时使模块图的一部分失活，但它也仍需要整个重新构建并重载页面。这样代价很高，并且重新加载页面会消除应用的当前状态，所以打包器支持了动态模块热替换（HMR）：允许一个模块 “热替换” 它自己，而不会影响页面其余部分。这大大改进了开发体验 —— 然而，在实践中我们发现，即使采用了 HMR 模式，其热更新速度也会随着应用规模的增长而显著下降。
 
-在 Vite 中，HMR 是在原生 ESM 上执行的。当编辑一个文件时，Vite 只需要精确地使已编辑的模块与其最近的 HMR 边界之间的链失活<sup>[[1]](#footnote-1)</sup>（大多数时候只是模块本身），使得无论应用大小如何，HMR 始终能保持快速更新。
+在 Vite 中，HMR 是在原生 ESM 上执行的。当编辑一个文件时，Vite 只需要精确地使已编辑的模块与其最近的 HMR 边界之间的链失活（大多数时候只是模块本身），使得无论应用大小如何，HMR 始终能保持快速更新。
 
 Vite 同时利用 HTTP 头来加速整个页面的重新加载（再次让浏览器为我们做更多事情）：源码模块的请求会根据 `304 Not Modified` 进行协商缓存，而依赖模块请求则会通过 `Cache-Control: max-age=31536000,immutable` 进行强缓存，因此一旦被缓存它们将不需要再次请求。
 
@@ -57,7 +57,7 @@ Vite 目前的插件 API 与使用 `esbuild` 作为打包器并不兼容。尽�
 
 Rollup 已经开始着手改进性能，[在 v4 中将其解析器切换到 SWC](https://github.com/rollup/rollup/pull/5073)。同时还有一个正在进行中的工作，即构建一个名为 Rolldown 的 Rust 版本的 Rollup。一旦 Rolldown 准备就绪，它就可以在 Vite 中取代 Rollup 和 esbuild，显著提高构建性能，并消除开发和构建之间的不一致性。你可以观看 [Evan You 在 ViteConf 2023 的主题演讲](https://youtu.be/hrdwQHoAp0M) 了解更多细节。
 
-## Vite 与其他免打包构建工具的关系是什么？{##how-vite-relates-to-other-unbundled-build-tools}
+## Vite 与其他免打包构建工具的关系是什么？{#how-vite-relates-to-other-unbundled-build-tools}
 
 Preact 团队的 [WMR](https://github.com/preactjs/wmr) 旨在提供类似的功能集。Vite 用于开发和构建的通用 Rollup 插件 API 就是受其启发。WMR 已经不再维护。Preact 团队现在推荐使用 Vite 和 [@preactjs/preset-vite](https://github.com/preactjs/preset-vite)。
 

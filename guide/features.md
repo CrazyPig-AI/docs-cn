@@ -12,7 +12,7 @@ import { someMethod } from 'my-dep'
 
 上面的代码会在浏览器中抛出一个错误。Vite 将会检测到所有被加载的源文件中的此类裸模块导入，并执行以下操作:
 
-1. [预构建](./dep-pre-bundling) 它们可以提高页面加载速度，并将 CommonJS / UMD 转换为 ESM 格式。预构建这一步由 [esbuild](http://esbuild.github.io/) 执行，这使得 Vite 的冷启动时间比任何基于 JavaScript 的打包器都要快得多。
+1. [预构建](./dep-pre-bundling) 它们可以提高页面加载速度，并将 CommonJS / UMD 转换为 ESM 格式。预构建这一步由 [esbuild](https://esbuild.github.io/) 执行，这使得 Vite 的冷启动时间比任何基于 JavaScript 的打包器都要快得多。
 
 2. 重写导入为合法的 URL，例如 `/node_modules/.vite/deps/my-dep.js?v=f3sf2ebd` 以便浏览器能够正确导入它们。
 
@@ -53,6 +53,10 @@ export type { T }
 
 ### TypeScript 编译器选项 {#typescript-compiler-options}
 
+Vite 会参考 `tsconfig.json` 中的一些配置项，并设置相应的 esbuild 选项。对于每个文件，Vite 会使用距离最近的父级目录中的 `tsconfig.json`。如果该 `tsconfig.json` 包含 [`references`](https://www.typescriptlang.org/tsconfig/#references) 字段，Vite 将使用满足 [`include`](https://www.typescriptlang.org/tsconfig/#include) 和 [`exclude`](https://www.typescriptlang.org/tsconfig/#exclude) 字段的被引用配置文件。
+
+当选项同时在 Vite 配置和 `tsconfig.json` 中设置时，Vite 配置中的值优先。
+
 `tsconfig.json` 中 `compilerOptions` 下的一些配置项需要特别注意。
 
 #### `isolatedModules`
@@ -87,12 +91,19 @@ Vite 忽略 `tsconfig.json` 中的 `target` 值，遵循与 `esbuild` 相同的�
 
 要在开发中指定目标，可使用 [`esbuild.target`](/config/shared-options.html#esbuild) 选项，默认值为 `esnext`，以实现最小的转译。在构建中，[`build.target`](/config/build-options.html#build-target) 选项优先于 `esbuild.target`，如有需要也可以进行设置。
 
-::: warning `useDefineForClassFields`
+#### `emitDecoratorMetadata` {#emitDecoratorMetadata}
 
-如果 `target` 不是 `ESNext` 或 `ES2022` 或更新版本，或者没有 `tsconfig.json` 文件，`useDefineForClassFields` 将默认为 `false`，这可能会导致默认的 `esbuild.target` 值为 `esnext` 的问题。它可能会转译为 [static initialization blocks](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks#browser_compatibility)，这在你的浏览器中可能不被支持。
+- [TypeScript 文档](https://www.typescriptlang.org/tsconfig#emitDecoratorMetadata)
 
-因此，建议将 `target` 设置为 `ESNext` 或 `ES2022` 或更新版本，或者在配置 `tsconfig.json` 时将 `useDefineForClassFields` 显式设置为 `true`。
-:::
+此选项仅被部分支持。完全支持需要 TypeScript 编译器进行类型推断，而这是不受支持的。详情请参见 [Oxc Transformer 的文档](https://oxc.rs/docs/guide/usage/transformer/typescript#decorators)。
+
+#### `paths` {#paths}
+
+- [TypeScript 文档](https://www.typescriptlang.org/tsconfig/#paths)
+
+可以指定 `resolve.tsconfigPaths: true` 来告诉 Vite 使用 `tsconfig.json` 中的 `paths` 选项来解析导入。
+
+需要注意的是，这个功能会有性能损耗，并且 [TypeScript 团队不建议使用这个选项来改变外部工具的行为](https://www.typescriptlang.org/tsconfig/#paths:~:text=Note%20that%20this%20feature%20does%20not%20change%20how%20import%20paths%20are%20emitted%20by%20tsc%2C%20so%20paths%20should%20only%20be%20used%20to%20inform%20TypeScript%20that%20another%20tool%20has%20this%20mapping%20and%20will%20use%20it%20at%20runtime%20or%20when%20bundling.)。
 
 #### 影响构建结果的其他编译器选项 {#other-compiler-options-affecting-the-build-result}
 
@@ -105,7 +116,6 @@ Vite 忽略 `tsconfig.json` 中的 `target` 值，遵循与 `esbuild` 相同的�
 - [`jsxFragmentFactory`](https://www.typescriptlang.org/tsconfig#jsxFragmentFactory)
 - [`jsxImportSource`](https://www.typescriptlang.org/tsconfig#jsxImportSource)
 - [`experimentalDecorators`](https://www.typescriptlang.org/tsconfig#experimentalDecorators)
-- [`alwaysStrict`](https://www.typescriptlang.org/tsconfig#alwaysStrict)
 
 ::: tip `skipLibCheck`
 Vite 启动模板默认情况下会设置 `"skipLibCheck": "true"`，以避免对依赖项进行类型检查，因为它们可能只支持特定版本和配置的 TypeScript。你可以在 [vuejs/vue-cli#5688](https://github.com/vuejs/vue-cli/pull/5688) 了解更多信息。
@@ -146,7 +156,7 @@ Vite 默认的类型定义是写给它的 Node.js API 的。要将其补充到�
 
 例如，要为 React 组件中的 `*.svg` 文件定义类型：
 
-- `vite-env-override.d.ts` (the file that contains your typings):
+- `vite-env-override.d.ts` （包含您输入内容的文件）：
   ```ts
   declare module '*.svg' {
     const content: React.FC<React.SVGProps<SVGElement>>
@@ -196,7 +206,7 @@ HTML 文件位于 Vite 项目的[最前端和中心](/guide/#index-html-and-proj
   - 或仅当 `property` 属性匹配以下值时：`og:image`，`og:image:url`，`og:image:secure_url`，`og:audio`，`og:audio:secure_url`，`og:video`，或 `og:video:secure_url`
 
 ```html {4-5,8-9}
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <link rel="icon" href="/favicon.ico" />
@@ -237,8 +247,8 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   esbuild: {
     jsxFactory: 'h',
-    jsxFragment: 'Fragment',
-  },
+    jsxFragment: 'Fragment'
+  }
 })
 ```
 
@@ -251,8 +261,8 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   esbuild: {
-    jsxInject: `import React from 'react'`,
-  },
+    jsxInject: `import React from 'react'`
+  }
 })
 ```
 
@@ -427,7 +437,7 @@ const modules = import.meta.glob('./dir/*.js')
 // vite 生成的代码
 const modules = {
   './dir/bar.js': () => import('./dir/bar.js'),
-  './dir/foo.js': () => import('./dir/foo.js'),
+  './dir/foo.js': () => import('./dir/foo.js')
 }
 ```
 
@@ -457,7 +467,7 @@ import * as __vite_glob_0_0 from './dir/bar.js'
 import * as __vite_glob_0_1 from './dir/foo.js'
 const modules = {
   './dir/bar.js': __vite_glob_0_0,
-  './dir/foo.js': __vite_glob_0_1,
+  './dir/foo.js': __vite_glob_0_1
 }
 ```
 
@@ -484,7 +494,7 @@ const modules = import.meta.glob(['./dir/*.js', '!**/bar.js'])
 ```js
 // vite 生成的代码
 const modules = {
-  './dir/foo.js': () => import('./dir/foo.js'),
+  './dir/foo.js': () => import('./dir/foo.js')
 }
 ```
 
@@ -502,7 +512,7 @@ const modules = import.meta.glob('./dir/*.js', { import: 'setup' })
 // vite 生成的代码
 const modules = {
   './dir/bar.js': () => import('./dir/bar.js').then((m) => m.setup),
-  './dir/foo.js': () => import('./dir/foo.js').then((m) => m.setup),
+  './dir/foo.js': () => import('./dir/foo.js').then((m) => m.setup)
 }
 ```
 
@@ -513,7 +523,7 @@ import 'vite/client'
 // ---cut---
 const modules = import.meta.glob('./dir/*.js', {
   import: 'setup',
-  eager: true,
+  eager: true
 })
 ```
 
@@ -523,7 +533,7 @@ import { setup as __vite_glob_0_0 } from './dir/bar.js'
 import { setup as __vite_glob_0_1 } from './dir/foo.js'
 const modules = {
   './dir/bar.js': __vite_glob_0_0,
-  './dir/foo.js': __vite_glob_0_1,
+  './dir/foo.js': __vite_glob_0_1
 }
 ```
 
@@ -534,7 +544,7 @@ import 'vite/client'
 // ---cut---
 const modules = import.meta.glob('./dir/*.js', {
   import: 'default',
-  eager: true,
+  eager: true
 })
 ```
 
@@ -544,7 +554,7 @@ import { default as __vite_glob_0_0 } from './dir/bar.js'
 import { default as __vite_glob_0_1 } from './dir/foo.js'
 const modules = {
   './dir/bar.js': __vite_glob_0_0,
-  './dir/foo.js': __vite_glob_0_1,
+  './dir/foo.js': __vite_glob_0_1
 }
 ```
 
@@ -557,11 +567,11 @@ import 'vite/client'
 // ---cut---
 const moduleStrings = import.meta.glob('./dir/*.svg', {
   query: '?raw',
-  import: 'default',
+  import: 'default'
 })
 const moduleUrls = import.meta.glob('./dir/*.svg', {
   query: '?url',
-  import: 'default',
+  import: 'default'
 })
 ```
 
@@ -569,11 +579,11 @@ const moduleUrls = import.meta.glob('./dir/*.svg', {
 // vite 生成的代码
 const moduleStrings = {
   './dir/bar.svg': () => import('./dir/bar.svg?raw').then((m) => m['default']),
-  './dir/foo.svg': () => import('./dir/foo.svg?raw').then((m) => m['default']),
+  './dir/foo.svg': () => import('./dir/foo.svg?raw').then((m) => m['default'])
 }
 const moduleUrls = {
   './dir/bar.svg': () => import('./dir/bar.svg?url').then((m) => m['default']),
-  './dir/foo.svg': () => import('./dir/foo.svg?url').then((m) => m['default']),
+  './dir/foo.svg': () => import('./dir/foo.svg?url').then((m) => m['default'])
 }
 ```
 
@@ -583,7 +593,7 @@ const moduleUrls = {
 import 'vite/client'
 // ---cut---
 const modules = import.meta.glob('./dir/*.js', {
-  query: { foo: 'bar', bar: true },
+  query: { foo: 'bar', bar: true }
 })
 ```
 
@@ -595,15 +605,15 @@ const modules = import.meta.glob('./dir/*.js', {
 import 'vite/client'
 // ---cut---
 const modulesWithBase = import.meta.glob('./**/*.js', {
-  base: './base',
+  base: './base'
 })
 ```
 
 ```ts
-// code produced by vite:
+// vite 生成的代码：
 const modulesWithBase = {
   './dir/foo.js': () => import('./base/dir/foo.js'),
-  './dir/bar.js': () => import('./base/dir/bar.js'),
+  './dir/bar.js': () => import('./base/dir/bar.js')
 }
 ```
 
@@ -619,7 +629,7 @@ const modulesWithBase = {
 
 - 这只是一个 Vite 独有的功能而不是一个 Web 或 ES 标准
 - 该 Glob 模式会被当成导入标识符：必须是相对路径（以 `./` 开头）或绝对路径（以 `/` 开头，相对于项目根目录解析）或一个别名路径（请看 [`resolve.alias` 选项](/config/shared-options.md#resolve-alias))。
-- Glob 匹配是使用 [`tinyglobby`](https://github.com/SuperchupuDev/tinyglobby) 来实现的 —— 阅读它的文档来查阅 [支持的 Glob 模式](https://github.com/mrmlnc/fast-glob#pattern-syntax)。
+- Glob 匹配是使用 [`tinyglobby`](https://github.com/SuperchupuDev/tinyglobby) 来实现的 —— 阅读它的文档来查阅 [支持的 Glob 模式](https://superchupu.dev/tinyglobby/comparison)。
 - 你还需注意，所有 `import.meta.glob` 的参数都必须以字面量传入。你 **不** 可以在其中使用变量或表达式。
 
 ## 动态导入 {#dynamic-import}
@@ -657,8 +667,8 @@ init({
   imports: {
     someFunc: () => {
       /* ... */
-    },
-  },
+    }
+  }
 }).then(() => {
   /* ... */
 })
@@ -682,8 +692,9 @@ import wasmUrl from 'foo.wasm?url'
 
 const main = async () => {
   const responsePromise = fetch(wasmUrl)
-  const { module, instance } =
-    await WebAssembly.instantiateStreaming(responsePromise)
+  const { module, instance } = await WebAssembly.instantiateStreaming(
+    responsePromise
+  )
   /* ... */
 }
 
@@ -729,7 +740,7 @@ worker 构造函数会接受可以用来创建 “模块” worker 的选项：
 
 ```ts
 const worker = new Worker(new URL('./worker.js', import.meta.url), {
-  type: 'module',
+  type: 'module'
 })
 ```
 
@@ -788,6 +799,42 @@ import MyWorker from './worker?worker&url'
 :::warning
 不要为 [`script-src`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src) 允许 `data:`。这将会允许注入任何脚本。
 :::
+
+## License
+
+Vite 可以通过 [`build.license`](/config/build-options.md#build-license) 选项生成一个包含构建中使用的所有依赖项许可证的文件。该文件可以被托管，用于显示和确认应用程序所使用的依赖项。
+
+```js twoslash [vite.config.js]
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  build: {
+    license: true,
+  },
+})
+```
+
+这将生成一个 `.vite/license.md` 文件，其输出内容可能如下所示：
+
+```md
+# Licenses
+
+The app bundles dependencies which contain the following licenses:
+
+## dep-1 - 1.2.3 (CC0-1.0)
+
+CC0 1.0 Universal
+
+...
+
+## dep-2 - 4.5.6 (MIT)
+
+MIT License
+
+...
+```
+
+要将文件服务于不同的路径，你可以传递 `{ fileName: 'license.md' }` 作为示例，这样它就会在 `https://example.com/license.md` 路径下提供服务。有关更多信息，请参见 [`build.license`](/config/build-options.md#build-license) 文档。
 
 ## 构建优化 {#build-optimizations}
 

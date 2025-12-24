@@ -55,15 +55,27 @@ $ npm run preview
 
 ## GitHub Pages {#github-pages}
 
-1. 在 `vite.config.js` 中设置正确的 `base`。
+1. **更新 Vite 配置**
+
+   在 `vite.config.js` 中设置正确的 `base`。
 
    如果你正要部署到 `https://<USERNAME>.github.io/`，或者通过 GitHub Pages 部署到一个自定义域名（例如 `www.example.com`），请将 `base` 设置为 `'/'`。或者，你也可以从配置中移除 `base`，因为它默认为 `'/'`。
 
    如果你正在部署到 `https://<USERNAME>.github.io/<REPO>/`（例如你的仓库地址为 `https://github.com/<USERNAME>/<REPO>`），那么请将 `base` 设置为 `'/<REPO>/'`。
 
-2. 进入仓库 settings 页面的 GitHub Pages 配置，选择部署来源为“GitHub Actions”，这将引导你创建一个构建和部署项目的工作流程，我们提供了一个安装依赖项和使用 npm 构建的工作流程样本：
+2. **启用 GitHub Pages**
 
-   <<< ./static-deploy-github-pages.yaml#content
+   在你的仓库中，进入 **Settings → Pages**。在 **Build and deployment** 下，打开 **Source** 下拉菜单，然后选择 **GitHub Actions**。
+
+   GitHub 现在将使用 GitHub Actions [工作流](https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows)来部署你的网站，这是必要的，因为 Vite 需要构建步骤来进行部署。
+
+3. **创建工作流**
+
+   在你的仓库中创建一个新文件 `.github/workflows/deploy.yml`。你也可以从上一步点击 **"create your own"**，这将为你生成一个起始工作流程文件。
+
+   这里有一个示例工作流程，它使用 npm 安装依赖项，构建网站，并在你向 `main` 分支推送更改时部署它：
+
+   <<< ./static-deploy-github-pages.yaml#content [.github/workflows/deploy.yml]
 
 ## GitLab Pages 配合 GitLab CI {#gitlab-pages-and-gitlab-ci}
 
@@ -238,7 +250,7 @@ $ npx wrangler pages deploy dist
 
 3. 运行 `surge dist` 命令部署到 surge。
 
-你也可以通过添加 `surge dist yourdomain.com` 部署到一个 [自定义域名](http://surge.sh/help/adding-a-custom-domain)。
+你也可以通过添加 `surge dist yourdomain.com` 部署到一个 [自定义域名](https://surge.sh/help/adding-a-custom-domain)。
 
 ## Azure 的静态网站应用 {#azure-static-web-apps}
 
@@ -297,7 +309,7 @@ $ npx wrangler pages deploy dist
 
 ## Kinsta 静态站点托管 {#kinsta-static-site-hosting}
 
-根据 [说明](https://kinsta.com/docs/react-vite-example/)，使用 [Kinsta](https://kinsta.com/static-site-hosting/) 来部署你的静态站点。
+根据 [说明](https://kinsta.com/docs/react-vite-example/)，使用 [Kinsta](https://kinsta.com/docs/static-site-hosting/static-site-quick-start/react-static-site-examples/#react-with-vite) 来部署你的静态站点。
 
 ## xmit 静态站点托管 {#xmit-static-site-hosting}
 
@@ -309,4 +321,8 @@ $ npx wrangler pages deploy dist
 
 Zephyr 与其他云提供商采用不同的方法。它直接与 Vite 构建流程集成，因此每次你构建或运行应用程序的开发服务器时，它都会自动部署到 Zephyr Cloud。
 
-请按照 [Vite 部署指南](https://docs.zephyr-cloud.io/recipes/react-vite) 中的步骤开始使用。
+请按照 [Vite 部署指南](https://docs.zephyr-cloud.io/bundlers/vite) 中的步骤开始使用。
+
+## EdgeOne Pages {#edgeone-pages}
+
+通过遵循这些[说明](https://pages.edgeone.ai/document/vite)，使用 [EdgeOne Pages](https://edgeone.ai/products/pages) 部署你的静态站点。

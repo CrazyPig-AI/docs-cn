@@ -6,7 +6,7 @@
 
 ## 总览 {#overview}
 
-Vite（法语意为 "快速的"，发音 `/vit/`<button id="play-vite-audio" onclick="document.getElementById('vite-audio').play();" style="border: none; padding: 3px; border-radius: 4px; vertical-align: bottom;"><svg style="height:2em;width:2em"><use href="../images/voice.svg?no-inline#voice" /></svg></button>，发音同 "veet"）是一种新型前端构建工具，能够显著提升前端开发体验。它主要由两部分组成：
+Vite（法语意为 "快速的"，发音 `/viːt/`<button id="play-vite-audio" onclick="document.getElementById('vite-audio').play();" style="border: none; padding: 3px; border-radius: 4px; vertical-align: bottom;"><svg style="height:2em;width:2em"><use href="../images/voice.svg?no-inline#voice" /></svg></button>，发音同 "veet"）是一种新型前端构建工具，能够显著提升前端开发体验。它主要由两部分组成：
 
 - 一个开发服务器，它基于 [原生 ES 模块](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) 提供了 [丰富的内建功能](./features)，如速度快到惊人的 [模块热替换（HMR）](./features#hot-module-replacement)。
 
@@ -20,7 +20,7 @@ Vite 还提供了强大的扩展性，可通过其 [插件 API](./api-plugin) �
 
 ## 浏览器支持 {#browser-support}
 
-在开发过程中，Vite 假设使用的是现代浏览器。这意味着该浏览器支持大多数最新的 JavaScript 和 CSS 功能。因此，Vite 将 [`esnext` 设置为转换目标](https://esbuild.github.io/api/#target)。这可以防止语法降低，使 Vite 能够尽可能接近原始源代码提供模块。Vite 会注入一些运行时代码以使开发服务器正常工作。这些代码使用了 [Baseline](https://web-platform-dx.github.io/web-features/) 中包含的功能，该功能在每个主要版本发布时（此主要版本为 2025-05-01）新增。
+在开发过程中，Vite 假设使用的是现代浏览器。这意味着该浏览器支持大多数最新的 JavaScript 和 CSS 功能。因此，Vite 将 [`esnext` 设置为转换目标](https://esbuild.github.io/api/#target)。这可以防止语法降低，使 Vite 能够尽可能接近原始源代码提供模块。Vite 会注入一些运行时代码以使开发服务器正常工作。这些代码使用了 [Baseline](https://web-platform-dx.github.io/web-features/) 中包含的功能，该功能在每个主要版本发布时（此主要版本为 2026-01-01）新增。
 
 对于生产环境构建，Vite 默认以 [Baseline](https://web-platform-dx.github.io/web-features/) 广泛可用的浏览器为目标平台。这些浏览器至少发布于两年半之前。您可以通过配置降低目标浏览器版本。此外，可以通过官方 [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) 支持旧版浏览器。更多详情，请参阅 [构建生产环境](./build) 部分。
 
@@ -106,6 +106,8 @@ $ deno init --npm vite my-vue-app --template vue
 
 你可以使用 `.` 作为项目名称，在当前目录中创建项目脚手架。
 
+要创建一个没有交互式提示的项目，你可以使用 `--no-interactive` 标志。
+
 ::::
 
 ## 社区模板 {#community-templates}
@@ -114,10 +116,10 @@ create-vite 是一个快速生成主流框架基础模板的工具。查看 Awes
 
 对于一个 `https://github.com/user/project` 中的模板，可以尝试使用 `https://github.stackblitz.com/user/project`（即在项目 URL 的 `github` 后添加 `.stackblitz`）。
 
-你也可以用如 [degit](https://github.com/Rich-Harris/degit) 之类的工具，使用社区模版来搭建项目。假设项目在 GitHub 上并使用 `main` 作为默认分支，可以使用以下命令创建本地副本：
+你也可以用如 [tiged](https://github.com/tiged/tiged) 之类的工具，使用社区模版来搭建项目。假设项目在 GitHub 上并使用 `main` 作为默认分支，可以使用以下命令创建本地副本：
 
 ```bash
-npx degit user/project#main my-project
+npx tiged user/project my-project
 cd my-project
 
 npm install
@@ -258,6 +260,8 @@ pnpm link --global # 在这一步中可使用你喜欢的包管理器
 ```
 
 然后，回到你的 Vite 项目并运行 `pnpm link --global vite`（或者使用你的其他包管理工具来全局链接 `vite`）。重新启动开发服务器来体验新功能吧！
+
+想了解更多关于 Vite 如何以及何时发布的信息，请查看 [发布](../releases.md) 文档。
 
 ::: tip 处理依赖中的 Vite 版本
 若需替换依赖链中传递使用的 Vite 版本（Transitive Dependencies），应使用 [npm overrides](https://docs.npmjs.com/cli/v11/configuring-npm/package-json#overrides) 或 [pnpm overrides](https://pnpm.io/9.x/package_json#pnpmoverrides)。
