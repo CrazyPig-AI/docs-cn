@@ -216,17 +216,17 @@ export default defineConfig({
     footer: {
       message: `Released under the MIT License. (${commitRef})`,
       copyright:
-        'Copyright © 2025-present CrazyPig AI Team.'
+        'Copyright © 2026-present CrazyPig AI Team.'
     },
 
     nav: [
       /*{
         component: 'ReleaseTag'
       },*/
-      { text: '🌈首页', link: '/'},
-      { text: '🚀帮助文档', link: '/deploy/', activeMatch: '/deploy/' },
-      { text: '👉Komari', link: 'https://komari.007988.xyz/' },
-        { text: '✨AI-Draw', link: 'https://ai-smart-draw.vercel.app/' },
+      { text: '🏳️‍🌈首页', link: '/'},
+      { text: '🚀文档', link: '/deploy/', activeMatch: '/deploy/' },
+      { text: '🤪Komari', link: 'https://komari.007988.xyz/' },
+      { text: '✨AI-Draw', link: 'https://ai-smart-draw.vercel.app/' },
       /*{ text: '配置', link: '/config/', activeMatch: '/config/' },
       { text: '插件', link: '/plugins/', activeMatch: '/plugins/' },*/
       {
@@ -348,6 +348,27 @@ export default defineConfig({
                         ]
                     },
                     {
+                        text: 'models',
+                        items: [
+                            {
+                                text: 'ollama',
+                                link: 'https://ollama.com/',
+                            },
+                            {
+                                text: 'Xinference',
+                                link: 'https://github.com/xorbitsai/inference',
+                            },
+                            {
+                                text: 'open-webui',
+                                link: 'https://github.com/open-webui/open-webui',
+                            },
+                            {
+                                text: 'anythingllm',
+                                link: 'https://anythingllm.com/',
+                            },
+                        ]
+                    },
+                    {
                         text: 'MCP',
                         items: [
                             {
@@ -408,7 +429,7 @@ export default defineConfig({
                         link: 'https://goharbor.io/',
                     },
                     {
-                        text: '资源监控',
+                        text: 'UptimeKuma',
                         link: 'https://github.com/louislam/uptime-kuma',
                     },
                 ],

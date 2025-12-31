@@ -12,7 +12,7 @@ export const core = [
     sponsor: 'https://github.com/sponsors/wechat-ai',
   },
   {
-    avatar: '../images/avatar/2.jpg',
+    avatar: './avatar/2.jpg',
     name: '苗สุขสันต์วันเกิด',
     title: 'A collaborative being',
     org: 'szjn',
@@ -25,7 +25,7 @@ export const core = [
     sponsor: 'https://github.com/sponsors/',
   },
   {
-    avatar: '../images/avatar/3.jpg',
+    avatar: './avatar/3.jpg',
     name: '中原',
     title: 'A fanatical open sourceror',
     org: 'szjn',
@@ -39,7 +39,7 @@ export const core = [
     sponsor: 'https://github.com/sponsors/',
   },
   {
-    avatar: '../images/avatar/4.jpg',
+    avatar: './avatar/4.jpg',
     name: 'never give up🌾',
     org: 'gree',
     title: 'Open Source Developer',

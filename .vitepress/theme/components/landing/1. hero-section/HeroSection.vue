@@ -1,5 +1,12 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import HeroDiagram from './HeroDiagram.vue'
+
+const openPopupWindow = (url, windowName, windowFeatures) => {
+  // 使用实际的public目录下的HTML文件路径
+  const actualUrl = '/pig-text/index.html';
+  window.open(actualUrl, windowName, windowFeatures);
+}
 </script>
 
 <template>
@@ -31,9 +38,9 @@ import HeroDiagram from './HeroDiagram.vue'
       <div class="hero__actions">
         <a href="/deploy/" class="btn btn--primary">释放疯力</a>
         <a
-          href="https://github.com/"
-          target="_blank"
+          href="#"
           class="btn btn--outline"
+          @click.prevent="openPopupWindow('/pig-text/index.html', 'pig-text-window', 'width=800,height=600,scrollbars=yes,resizable=yes')"
         >
           <img src="./github.svg" alt="GitHub logo" width="20" height="20" />
           加入猪群
