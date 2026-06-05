@@ -224,19 +224,20 @@ export default defineConfig({
         component: 'ReleaseTag'
       },*/
       { text: '🏳️‍🌈首页', link: '/'},
-      { text: '🚀文档', link: '/deploy/', activeMatch: '/deploy/' },
-      { text: '🤪Komari', link: 'https://komari.007988.xyz/' },
-      { text: '✨AI-Draw', link: 'https://ai-smart-draw.vercel.app/' },
+      { text: '👺文档', link: '/deploy/', activeMatch: '/deploy/' },
+      { text: '👹Komari', link: 'https://komari.007988.xyz/' },
+      { text: '🚀SubLink', link: 'https://sublink.007988.xyz/' },
+      { text: '🤖AI-Draw', link: 'https://ai-smart-draw.vercel.app/' },
       /*{ text: '配置', link: '/config/', activeMatch: '/config/' },
       { text: '插件', link: '/plugins/', activeMatch: '/plugins/' },*/
       {
         text: '🛠️相关链接',
         items: [
-          { text: '团队成员', link: '/team' },
-          { text: '最新博客', link: '/blog' },
-          { text: '发布策略', link: '/releases' },
+          { text: '🤡团队成员', link: '/team' },
+          { text: '✨最新博客', link: '/blog' },
+          { text: '👿发布策略', link: '/releases' },
           {
-            text: 'youtube',
+            text: '🔥youtube',
             link: 'https://www.youtube.com',
           },
           /*{
@@ -325,6 +326,10 @@ export default defineConfig({
                         text: 'Ollama 自由了',
                         link: '/deploy/ollama',
                     },
+                    {
+                        text: '自建外网+内网穿透',
+                        link: '/deploy/frp',
+                    },
                 ],
             },
             {
@@ -410,6 +415,15 @@ export default defineConfig({
                     {
                         text: 'Supabase',
                         link: 'https://github.com/supabase/supabase',
+                    },
+                    {
+                        text: 'Oracle',
+                        items: [
+                            {
+                                text: 'Vibe Coding with Oracle APEX 26.1',
+                                link: '/db/Vibe Coding with Oracle APEX 26.1',
+                            },
+                        ]
                     },
                 ],
             },
