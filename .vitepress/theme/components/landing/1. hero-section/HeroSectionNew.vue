@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import ParticleBackground from './ParticleBackground.vue'
-import AIOrb from './AIOrb.vue'
 import GlitchText from './GlitchText.vue'
+import lottie from 'lottie-web'
+import pako from 'pako'
 
 const openPopupWindow = (url: string, windowName: string, windowFeatures: string) => {
   const actualUrl = '/pig-text/index.html'
@@ -18,8 +19,49 @@ const handleMouseMove = (e: MouseEvent) => {
   mouseY.value = e.clientY
 }
 
+// Lottie 动画引用
+const animationRefs = ref<HTMLElement[]>([])
+
+const animations = [
+  '/animations/simple.tgs',
+  '/animations/private.tgs',
+  '/animations/synced.tgs',
+  '/animations/fast.tgs',
+  '/animations/powerful.tgs',
+  '/animations/open.tgs',
+  '/animations/secure.tgs',
+  '/animations/social.tgs',
+  '/animations/expressive.tgs'
+]
+
+const loadAnimations = async () => {
+  for (let index = 0; index < animations.length; index++) {
+    const container = animationRefs.value[index]
+    if (container) {
+      try {
+        const response = await fetch(animations[index])
+        const buffer = await response.arrayBuffer()
+        const decompressed = pako.ungzip(new Uint8Array(buffer))
+        const json = new TextDecoder().decode(decompressed)
+        const animationData = JSON.parse(json)
+
+        lottie.loadAnimation({
+          container,
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          animationData
+        })
+      } catch (e) {
+        console.error('Failed to load:', animations[index], e)
+      }
+    }
+  }
+}
+
 onMounted(() => {
   window.addEventListener('mousemove', handleMouseMove)
+  loadAnimations()
 })
 
 onUnmounted(() => {
@@ -67,15 +109,24 @@ onUnmounted(() => {
             </linearGradient>
           </defs>
         </svg>
-        <span class="badge-text">CRAZY PIG AI · 疯猪智能</span>
+        <span class="badge-text">疯猪AI · CRAZY PIG AI</span>
         <div class="badge-pulse"></div>
       </div>
 
       <!-- 主标题 - 使用故障艺术效果 -->
       <GlitchText text="要想富 先发疯" class="main-title" />
 
-      <!-- AI 核心球体 -->
-      <AIOrb />
+      <!-- Lottie 动画滚动条 -->
+      <div class="animations-scroll">
+        <div class="animations-track">
+          <div
+            v-for="(anim, index) in [...animations, ...animations]"
+            :key="index"
+            :ref="el => animationRefs[index] = el"
+            class="animation-item"
+          ></div>
+        </div>
+      </div>
 
       <!-- 副标题 -->
       <div class="subtitle-container">
@@ -103,7 +154,7 @@ onUnmounted(() => {
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
-            释放疯力
+            疯力文档
           </span>
           <span class="btn-glow"></span>
         </a>
@@ -118,7 +169,7 @@ onUnmounted(() => {
               <path d="M8 1C11.866 1 15 4.134 15 8C15 11.866 11.866 15 8 15C6.5 15 5.2 14.5 4 13.7L1 15L2.3 12C1.5 10.8 1 9.5 1 8C1 4.134 4.134 1 8 1Z"
                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            加入猪群
+            疯力娱乐
           </span>
           <span class="btn-particles"></span>
         </a>
@@ -269,6 +320,7 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  padding-top: 80px;
 }
 
 /* AI Badge */
@@ -623,6 +675,41 @@ onUnmounted(() => {
   width: 100%;
   height: 2px;
   z-index: 2;
+}
+
+/* Lottie 动画滚动条 */
+.animations-scroll {
+  width: 100%;
+  max-width: 1100px;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  padding: 20px;
+  border: 2px solid rgba(189, 52, 254, 0.3);
+  border-radius: 20px;
+  background: rgba(20, 20, 20, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.animations-track {
+  display: flex;
+  gap: 40px;
+  animation: scroll-left 30s linear infinite;
+}
+
+.animation-item {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* 响应式 */

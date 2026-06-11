@@ -36,14 +36,14 @@ const openPopupWindow = (url, windowName, windowFeatures) => {
 
       <!-- CTA Buttons -->
       <div class="hero__actions">
-        <a href="/deploy/" class="btn btn--primary">释放疯力</a>
+        <a href="/deploy/" class="btn btn--primary">疯力文档</a>
         <a
           href="#"
           class="btn btn--outline"
           @click.prevent="openPopupWindow('/pig-text/index.html', 'pig-text-window', 'width=800,height=600,scrollbars=yes,resizable=yes')"
         >
           <img src="./github.svg" alt="GitHub logo" width="20" height="20" />
-          加入猪群
+          疯力娱乐
         </a>
       </div>
     </div>

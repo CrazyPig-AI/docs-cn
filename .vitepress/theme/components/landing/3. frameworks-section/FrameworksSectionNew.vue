@@ -59,52 +59,54 @@ interface Framework {
   color: string
   url: string
   visible: Ref<boolean>
+  isHighlighted: Ref<boolean>
 }
 
 const frameworks: Framework[] = [
-  { name: 'ChatGPT', logo: chatgpt, color: '#FFD700', url: 'https://chatgpt.com/', visible: ref(false) },
-  { name: 'Claude', logo: claude, color: '#BD34FE', url: 'https://claude.com/', visible: ref(false) },
-  { name: 'Gemini', logo: gemini, color: '#be4622', url: 'https://gemini.google.com/', visible: ref(false) },
-  { name: 'Grok', logo: grok, color: '#fd4684', url: 'https://grok.com/', visible: ref(false) },
-  { name: 'Cursor', logo: cursor, color: '#BD34FE', url: 'https://cursor.com/cn', visible: ref(false) },
-  { name: 'Hermes', logo: hermes, color: '#00d6fd', url: 'https://hermes-agent.nousresearch.com/', visible: ref(false) },
-  { name: 'OpenClaw', logo: openclaw, color: '#BD34FE', url: 'https://openclaw.ai/', visible: ref(false) },
-  { name: 'OpenCode', logo: opencode, color: '#be4622', url: 'https://opencode.ai/', visible: ref(false) },
+  { name: 'ChatGPT', logo: chatgpt, color: '#FFD700', url: 'https://chatgpt.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Claude', logo: claude, color: '#BD34FE', url: 'https://claude.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Gemini', logo: gemini, color: '#be4622', url: 'https://gemini.google.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Grok', logo: grok, color: '#fd4684', url: 'https://grok.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Cursor', logo: cursor, color: '#BD34FE', url: 'https://cursor.com/cn', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Hermes', logo: hermes, color: '#00d6fd', url: 'https://hermes-agent.nousresearch.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'OpenClaw', logo: openclaw, color: '#BD34FE', url: 'https://openclaw.ai/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'OpenCode', logo: opencode, color: '#be4622', url: 'https://opencode.ai/', visible: ref(false), isHighlighted: ref(false) },
 
-  { name: 'VsCode', logo: vscode, color: '#41D1FF', url: 'https://code.visualstudio.com/', visible: ref(false) },
-  { name: 'Toolbox', logo: toolbox, color: '#41D1FF', url: 'https://www.jetbrains.com/', visible: ref(false) },
-  { name: 'IntelliJ IDEA', logo: idea, color: '#00d6fd', url: 'https://www.jetbrains.com/', visible: ref(false) },
-  { name: 'AI', logo: ai, color: '#BD34FE', url: 'https://www.jetbrains.com/', visible: ref(false) },
-  { name: 'DataGrip', logo: datagrip, color: '#FFD700', url: 'https://www.jetbrains.com/', visible: ref(false) },
-  { name: 'PyCharm', logo: pycharm, color: '#41D1FF', url: 'https://www.jetbrains.com/', visible: ref(false) },
-  { name: 'ReSharper', logo: resharper, color: '#00d6fd', url: 'https://www.jetbrains.com/', visible: ref(false) },
-  { name: 'C++', logo: cpp, color: '#BD34FE', url: 'https://www.jetbrains.com/', visible: ref(false) },
-  { name: 'Scala', logo: scala, color: '#FFD700', url: 'https://www.jetbrains.com/', visible: ref(false) },
-  { name: 'WebStorm', logo: webstorm, color: '#00d6fd', url: 'https://www.jetbrains.com/', visible: ref(false) },
+  { name: 'VsCode', logo: vscode, color: '#41D1FF', url: 'https://code.visualstudio.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Toolbox', logo: toolbox, color: '#41D1FF', url: 'https://www.jetbrains.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'IntelliJ IDEA', logo: idea, color: '#00d6fd', url: 'https://www.jetbrains.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'AI', logo: ai, color: '#BD34FE', url: 'https://www.jetbrains.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'DataGrip', logo: datagrip, color: '#FFD700', url: 'https://www.jetbrains.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'PyCharm', logo: pycharm, color: '#41D1FF', url: 'https://www.jetbrains.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'ReSharper', logo: resharper, color: '#00d6fd', url: 'https://www.jetbrains.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'C++', logo: cpp, color: '#BD34FE', url: 'https://www.jetbrains.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Scala', logo: scala, color: '#FFD700', url: 'https://www.jetbrains.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'WebStorm', logo: webstorm, color: '#00d6fd', url: 'https://www.jetbrains.com/', visible: ref(false), isHighlighted: ref(false) },
 
-  { name: 'Vitest', logo: logoVitest, color: '#fac52b', url: 'https://vitest.dev/', visible: ref(false) },
-  { name: 'React', logo: logoReact, color: '#00d6fd', url: 'https://react.dev/', visible: ref(false) },
-  { name: 'Angular', logo: logoAngular, color: '#e03237', url: 'https://angular.dev/', visible: ref(false) },
-  { name: 'Vue', logo: logoVue, color: '#40b782', url: 'https://vuejs.org/', visible: ref(false) },
-  { name: 'Solid', logo: logoSolid, color: '#75b2df', url: 'https://www.solidjs.com/', visible: ref(false) },
-  { name: 'Svelte', logo: logoSvelte, color: '#fd3e00', url: 'https://svelte.dev/', visible: ref(false) },
-  { name: 'Preact', logo: logoPreact, color: '#673ab8', url: 'https://preactjs.com/', visible: ref(false) },
-  { name: 'Astro', logo: logoAstro, color: '#ffffff', url: 'https://astro.build', visible: ref(false) },
-  { name: 'Remix', logo: logoRemix, color: '#3991fd', url: 'https://remix.run/', visible: ref(false) },
-  { name: 'Nuxt', logo: logoNuxt, color: '#00da81', url: 'https://nuxt.com', visible: ref(false) },
-  { name: 'Qwik', logo: logoQwik, color: '#18b5f4', url: 'https://qwik.dev/', visible: ref(false) },
-  { name: 'Redwood', logo: logoRedwood, color: '#be4622', url: 'https://redwoodjs.com/', visible: ref(false) },
-  { name: 'Analog', logo: logoAnalog, color: '#c10f2e', url: 'https://analogjs.org/', visible: ref(false) },
-  { name: 'Playwright', logo: logoPlaywright, color: '#d45247', url: 'https://playwright.dev/', visible: ref(false) },
-  { name: 'Storybook', logo: logoStorybook, color: '#fd4684', url: 'https://storybook.js.org/', visible: ref(false) },
-  { name: 'Marko', logo: logoMarko, color: '#de2a87', url: 'https://markojs.com/', visible: ref(false) },
-  { name: 'Laravel', logo: logoLaravel, color: '#eb4432', url: 'https://laravel.com/', visible: ref(false) },
-  { name: 'AdonisJS', logo: logoAdonis, color: '#5a45ff', url: 'https://adonisjs.com/', visible: ref(false) },
-  { name: 'EmberJS', logo: logoEmber, color: '#e04e39', url: 'https://emberjs.com/', visible: ref(false) },
-  { name: 'Hono', logo: logoHono, color: '#ff5c13', url: 'https://hono.dev/', visible: ref(false) },
+  { name: 'Vitest', logo: logoVitest, color: '#fac52b', url: 'https://vitest.dev/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'React', logo: logoReact, color: '#00d6fd', url: 'https://react.dev/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Angular', logo: logoAngular, color: '#e03237', url: 'https://angular.dev/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Vue', logo: logoVue, color: '#40b782', url: 'https://vuejs.org/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Solid', logo: logoSolid, color: '#75b2df', url: 'https://www.solidjs.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Svelte', logo: logoSvelte, color: '#fd3e00', url: 'https://svelte.dev/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Preact', logo: logoPreact, color: '#673ab8', url: 'https://preactjs.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Astro', logo: logoAstro, color: '#ffffff', url: 'https://astro.build', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Remix', logo: logoRemix, color: '#3991fd', url: 'https://remix.run/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Nuxt', logo: logoNuxt, color: '#00da81', url: 'https://nuxt.com', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Qwik', logo: logoQwik, color: '#18b5f4', url: 'https://qwik.dev/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Redwood', logo: logoRedwood, color: '#be4622', url: 'https://redwoodjs.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Analog', logo: logoAnalog, color: '#c10f2e', url: 'https://analogjs.org/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Playwright', logo: logoPlaywright, color: '#d45247', url: 'https://playwright.dev/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Storybook', logo: logoStorybook, color: '#fd4684', url: 'https://storybook.js.org/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Marko', logo: logoMarko, color: '#de2a87', url: 'https://markojs.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Laravel', logo: logoLaravel, color: '#eb4432', url: 'https://laravel.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'AdonisJS', logo: logoAdonis, color: '#5a45ff', url: 'https://adonisjs.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'EmberJS', logo: logoEmber, color: '#e04e39', url: 'https://emberjs.com/', visible: ref(false), isHighlighted: ref(false) },
+  { name: 'Hono', logo: logoHono, color: '#ff5c13', url: 'https://hono.dev/', visible: ref(false), isHighlighted: ref(false) },
 ]
 
 let timeline: gsap.core.Timeline | null = null
+let highlightInterval: number | null = null
 
 onMounted(() => {
   timeline = gsap.timeline({
@@ -118,12 +120,24 @@ onMounted(() => {
   frameworks.forEach((framework, index) => {
     timeline!.set(framework.visible, { value: true }, index * 0.04)
   })
+
+  // 自动轮询高亮
+  let currentIndex = 0
+  highlightInterval = window.setInterval(() => {
+    frameworks[currentIndex].isHighlighted.value = false
+    currentIndex = (currentIndex + 1) % frameworks.length
+    frameworks[currentIndex].isHighlighted.value = true
+  }, 800)
 })
 
 onUnmounted(() => {
   if (timeline) {
     timeline.kill()
     timeline = null
+  }
+  if (highlightInterval) {
+    clearInterval(highlightInterval)
+    highlightInterval = null
   }
 })
 </script>
@@ -266,6 +280,24 @@ onUnmounted(() => {
   max-width: 1180px;
   margin: 0 auto;
 }
+
+.fw__grid > :nth-child(8n+1) { animation: float-1 4s ease-in-out infinite; }
+.fw__grid > :nth-child(8n+2) { animation: float-2 4.2s ease-in-out infinite; }
+.fw__grid > :nth-child(8n+3) { animation: float-3 4.4s ease-in-out infinite; }
+.fw__grid > :nth-child(8n+4) { animation: float-4 4.6s ease-in-out infinite; }
+.fw__grid > :nth-child(8n+5) { animation: float-5 4.8s ease-in-out infinite; }
+.fw__grid > :nth-child(8n+6) { animation: float-6 5s ease-in-out infinite; }
+.fw__grid > :nth-child(8n+7) { animation: float-7 5.2s ease-in-out infinite; }
+.fw__grid > :nth-child(8n+8) { animation: float-8 5.4s ease-in-out infinite; }
+
+@keyframes float-1 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+@keyframes float-2 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes float-3 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-18px); } }
+@keyframes float-4 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes float-5 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+@keyframes float-6 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@keyframes float-7 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+@keyframes float-8 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-13px); } }
 
 @media (min-width: 1024px) {
   .fw__grid {

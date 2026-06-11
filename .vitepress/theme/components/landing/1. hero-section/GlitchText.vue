@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 
 const props = defineProps<{
   text: string
@@ -7,20 +7,28 @@ const props = defineProps<{
 }>()
 
 const glitchRef = ref<HTMLDivElement | null>(null)
+const chars = computed(() => props.text.split(''))
 </script>
 
 <template>
-  <div ref="glitchRef" :class="['glitch-text', props.class]" :data-text="text">
-    <span class="glitch-text__main">{{ text }}</span>
-    <span class="glitch-text__layer glitch-text__layer--1" :data-text="text">{{ text }}</span>
-    <span class="glitch-text__layer glitch-text__layer--2" :data-text="text">{{ text }}</span>
+  <div ref="glitchRef" :class="['glitch-text', props.class]">
+    <span
+      v-for="(char, index) in chars"
+      :key="index"
+      class="glitch-char"
+      :style="{ '--char-index': index }"
+    >
+      <span class="glitch-char__main">{{ char }}</span>
+      <span class="glitch-char__layer glitch-char__layer--1">{{ char }}</span>
+      <span class="glitch-char__layer glitch-char__layer--2">{{ char }}</span>
+    </span>
   </div>
 </template>
 
 <style scoped>
 .glitch-text {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
   font-weight: 900;
   font-size: clamp(3rem, 10vw, 8rem);
   line-height: 1.1;
@@ -28,9 +36,36 @@ const glitchRef = ref<HTMLDivElement | null>(null)
   letter-spacing: -0.02em;
 }
 
-.glitch-text__main {
+.glitch-char {
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  animation: char-bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  animation-delay: calc(var(--char-index) * 0.2s);
+}
+
+@keyframes char-bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(-100px) rotate(-180deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.2) translateY(0) rotate(10deg);
+  }
+  80% {
+    transform: scale(0.9) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotate(0);
+  }
+}
+
+.glitch-char__main {
   position: relative;
   z-index: 3;
+  display: inline-block;
   background: linear-gradient(135deg, #BD34FE 0%, #41D1FF 50%, #FFD700 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
@@ -52,7 +87,7 @@ const glitchRef = ref<HTMLDivElement | null>(null)
   }
 }
 
-.glitch-text__layer {
+.glitch-char__layer {
   position: absolute;
   top: 0;
   left: 0;
@@ -66,12 +101,12 @@ const glitchRef = ref<HTMLDivElement | null>(null)
   opacity: 0.8;
 }
 
-.glitch-text__layer--1 {
+.glitch-char__layer--1 {
   z-index: 1;
   animation: glitch-1 3s infinite;
 }
 
-.glitch-text__layer--2 {
+.glitch-char__layer--2 {
   z-index: 2;
   animation: glitch-2 2s infinite;
 }
@@ -117,34 +152,6 @@ const glitchRef = ref<HTMLDivElement | null>(null)
   63% {
     transform: translate(0);
     opacity: 0;
-  }
-}
-
-/* 添加扫描线效果 */
-.glitch-text::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    transparent 0%,
-    rgba(189, 52, 254, 0.1) 50%,
-    transparent 100%
-  );
-  background-size: 100% 4px;
-  pointer-events: none;
-  animation: scanline 6s linear infinite;
-  z-index: 4;
-}
-
-@keyframes scanline {
-  from {
-    background-position: 0 -100%;
-  }
-  to {
-    background-position: 0 200%;
   }
 }
 

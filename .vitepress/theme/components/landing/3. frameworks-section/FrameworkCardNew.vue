@@ -14,6 +14,7 @@ interface Framework {
   color: string
   url: string
   visible: Ref<boolean>
+  isHighlighted: Ref<boolean>
 }
 
 const props = defineProps<{
@@ -29,7 +30,10 @@ const props = defineProps<{
     :target="props.framework.url ? '_blank' : undefined"
     rel="noopener"
     class="framework-card-new"
-    :class="{ 'is-visible': props.framework.visible.value === true }"
+    :class="{
+      'is-visible': props.framework.visible.value === true,
+      'is-highlighted': props.framework.isHighlighted.value === true
+    }"
     :style="{
       '--glow-color': props.framework.color,
       '--enter-delay': `${(props.index % 8) * 0.05}s`,
@@ -155,6 +159,31 @@ const props = defineProps<{
 }
 
 .framework-card-new:hover .fcn__name {
+  color: #fff;
+}
+
+/* 高亮状态 */
+.framework-card-new.is-highlighted {
+  transform: translateY(-8px) scale(1.05);
+  border-color: color-mix(in srgb, var(--glow-color) 70%, transparent);
+  background: rgba(26, 26, 32, 0.7);
+  box-shadow:
+    0 20px 60px -20px color-mix(in srgb, var(--glow-color) 80%, transparent),
+    0 0 0 2px color-mix(in srgb, var(--glow-color) 50%, transparent) inset;
+}
+
+.framework-card-new.is-highlighted .fcn__glow {
+  opacity: 1;
+}
+
+.framework-card-new.is-highlighted .fcn__logo img {
+  transform: scale(1.15);
+  filter: drop-shadow(
+    0 0 1rem color-mix(in srgb, var(--glow-color) 80%, transparent)
+  );
+}
+
+.framework-card-new.is-highlighted .fcn__name {
   color: #fff;
 }
 

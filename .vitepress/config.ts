@@ -174,13 +174,12 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/shenpeiheng' },
-      { icon: 'gitee', link: 'https://gitee.com/shenph' },
+      { icon: 'cloudflare', link: 'https://dash.cloudflare.com/' },
+      { icon: 'telegram', link: 'https://t.me/' },
       { icon: 'discourse',link: 'https://linux.do/'},
-      { icon: 'docker', link: 'https://www.docker.com/' },
-      { icon: 'google', link: 'https://www.google.com/' },
       { icon: 'x', link: 'https://x.com/' },
       { icon: 'mastodon', link: 'https://elk.zone/' },
-      { icon: 'cloudflare', link: 'https://dash.cloudflare.com/' },
+
     ],
 
     search: {
@@ -737,6 +736,7 @@ export default defineConfig({
         'gsap/dist/MotionPathPlugin',
       ],
     },
+    assetsInclude: ['**/*.tgs'],
   },
   buildEnd,
 })

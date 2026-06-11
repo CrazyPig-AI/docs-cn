@@ -38,5 +38,10 @@
 	},
 	"gitHooks": {
 		"commit-msg": "node scripts/verifyCommit.js"
+	},
+	"dependencies": {
+		"fflate": "^0.8.3",
+		"lottie-web": "^5.13.0",
+		"pako": "^2.1.0"
 	}
 }
