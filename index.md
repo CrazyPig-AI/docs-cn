@@ -40,6 +40,6 @@ onBeforeUnmount(() => {
   <FrameworksSection />
   <!--<CommunitySection />
   <SponsorSection />
-  <GetStartedSection />-->
-  <ContactSection />
+  <GetStartedSection />
+  <ContactSection />-->
 </div>

@@ -23,38 +23,58 @@ const handleMouseMove = (e: MouseEvent) => {
 const animationRefs = ref<HTMLElement[]>([])
 
 const animations = [
-  '/animations/simple.tgs',
-  '/animations/private.tgs',
-  '/animations/synced.tgs',
-  '/animations/fast.tgs',
-  '/animations/powerful.tgs',
-  '/animations/open.tgs',
-  '/animations/secure.tgs',
-  '/animations/social.tgs',
-  '/animations/expressive.tgs'
+  '/animations/1.tgs',
+  '/animations/2.tgs',
+  '/animations/3.tgs',
+  '/animations/4.tgs',
+  '/animations/5.tgs',
+  '/animations/6.tgs',
+  '/animations/7.tgs',
+  '/animations/8.tgs',
+  '/animations/9.tgs',
+  '/animations/10.tgs',
+  '/animations/11.tgs',
+  '/animations/12.tgs',
+  '/animations/13.tgs',
+  '/animations/14.tgs',
+  '/animations/15.tgs',
+  '/animations/16.tgs',
+  '/animations/17.tgs',
+  '/animations/18.tgs',
+  '/animations/19.tgs'
+  
 ]
 
 const loadAnimations = async () => {
-  for (let index = 0; index < animations.length; index++) {
-    const container = animationRefs.value[index]
-    if (container) {
+  // 先解压每个动画的数据(只 fetch 19 次)
+  const dataList = await Promise.all(
+    animations.map(async (src) => {
       try {
-        const response = await fetch(animations[index])
+        const response = await fetch(src)
         const buffer = await response.arrayBuffer()
         const decompressed = pako.ungzip(new Uint8Array(buffer))
         const json = new TextDecoder().decode(decompressed)
-        const animationData = JSON.parse(json)
-
-        lottie.loadAnimation({
-          container,
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          animationData
-        })
+        return JSON.parse(json)
       } catch (e) {
-        console.error('Failed to load:', animations[index], e)
+        console.error('Failed to load:', src, e)
+        return null
       }
+    })
+  )
+
+  // 模板渲染了两组(复制一份用于无缝滚动),遍历全部渲染项,用取模复用数据
+  const total = animationRefs.value.length
+  for (let index = 0; index < total; index++) {
+    const container = animationRefs.value[index]
+    const animationData = dataList[index % animations.length]
+    if (container && animationData) {
+      lottie.loadAnimation({
+        container,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData
+      })
     }
   }
 }
@@ -693,7 +713,7 @@ onUnmounted(() => {
 
 .animations-track {
   display: flex;
-  gap: 40px;
+  width: max-content;
   animation: scroll-left 30s linear infinite;
 }
 
@@ -701,6 +721,7 @@ onUnmounted(() => {
   width: 160px;
   height: 160px;
   flex-shrink: 0;
+  margin-right: 40px;
 }
 
 @keyframes scroll-left {
