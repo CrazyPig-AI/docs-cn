@@ -175,7 +175,7 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/shenpeiheng' },
       { icon: 'cloudflare', link: 'https://dash.cloudflare.com/' },
-      { icon: 'telegram', link: 'https://t.me/' },
+      { icon: 'telegram', link: 'https://t.me/pig007988' },
       { icon: 'discourse',link: 'https://linux.do/'},
       { icon: 'x', link: 'https://x.com/' },
       { icon: 'mastodon', link: 'https://elk.zone/' },

@@ -444,20 +444,20 @@ onUnmounted(() => {
 .subtitle {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 700;
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: gradient-shift 3s ease infinite;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0;
+}
+
+.text-line {
+  display: inline-flex;
 }
 
 .char {
   display: inline-block;
+  color: #FFD700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
   animation: char-bounce 1s ease-in-out infinite;
   animation-delay: calc(var(--char-index) * 0.1s);
 }
@@ -475,6 +475,7 @@ onUnmounted(() => {
   display: inline-block;
   animation: blink 1s step-end infinite;
   color: #41D1FF;
+  margin-left: 4px;
 }
 
 @keyframes blink {
@@ -483,15 +484,6 @@ onUnmounted(() => {
   }
   51%, 100% {
     opacity: 0;
-  }
-}
-
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
   }
 }
 

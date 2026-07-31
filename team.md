@@ -23,15 +23,15 @@ import { core, emeriti, cnTranslator } from './_data/team'
     </template>
   </VPTeamPageTitle>
   <VPTeamMembers size="small" :members="core" />
-  <!--<VPTeamPageSection>
-    <template #title>中文文档翻译维护者</template>
+  <VPTeamPageSection>
+    <template #title>疯猪AI 团队荣誉会员 维护者</template>
     <template #lead>
-      官方中文文档目前由以下 Vite 团队成员进行维护。
+      官方文档目前由以下 疯猪AI 进行维护。
     </template>
     <template #members>
       <VPTeamMembers size="small" :members="cnTranslator" />
     </template>
-  </VPTeamPageSection>-->
+  </VPTeamPageSection>
   <!--<VPTeamPageSection>
     <template #title>团队荣誉会员</template>
     <template #lead>

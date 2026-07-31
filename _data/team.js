@@ -15,7 +15,7 @@ export const core = [
     avatar: './avatar/2.jpg',
     name: '苗สุขสันต์วันเกิด',
     title: 'A collaborative being',
-    org: 'szjn',
+    org: 'SZJN',
     orgLink: '',
     desc: 'Core team member of CrazyPig.ai. Team member of CrazyPig.ai.',
     links: [
@@ -28,7 +28,7 @@ export const core = [
     avatar: './avatar/3.jpg',
     name: '中原',
     title: 'A fanatical open sourceror',
-    org: 'szjn',
+    org: 'SZJN',
     orgLink: 'https://nuxtlabs.com/',
     desc: 'Core team member of CrazyPig.ai. Working at NuxtLabs.',
     links: [
@@ -41,7 +41,7 @@ export const core = [
   {
     avatar: './avatar/4.jpg',
     name: 'never give up🌾',
-    org: 'gree',
+    org: 'QREE',
     title: 'Open Source Developer',
     desc: 'Building tools for fun.',
     links: [
@@ -220,6 +220,33 @@ export const emeriti = [
 
 export const cnTranslator = [
   {
+    avatar: 'https://avatars.githubusercontent.com/u/43341014?v=4',
+    name: 'shenpeiheng',
+    title: 'Open Source Developer',
+    org: 'CrazyPig.ai',
+    orgLink: '',
+    desc: 'Independent open source developer, creator of CrazyPig.ai.',
+    links: [
+      { icon: 'github', link: 'https://github.com/shenpeiheng' },
+      { icon: 'twitter', link: 'https://twitter.com/shenpeiheng' },
+      { icon: 'mastodon', link: 'https://elk.zone/mas.to/@shenpeiheng' },
+    ],
+    //sponsor: 'https://github.com/sponsors/sheneg',
+  },
+  {
+    avatar: 'https://avatars.githubusercontent.com/u/27673046?v=4',
+    name: 'zero-degree-personal-portal',
+    title: 'Open Source Developer',
+    org: 'CrazyPig.ai',
+    orgLink: '',
+    desc: 'Independent open source developer, creator of CrazyPig.ai.',
+    links: [
+      { icon: 'github', link: 'https://github.com/sheneg' },
+      { icon: 'twitter', link: 'https://twitter.com/sheneg' }
+    ],
+    //sponsor: 'https://github.com/sponsors/sheneg',
+  },
+  /*{
     avatar: 'https://www.github.com/ShenQingchuan.png',
     name: 'ShenQingchuan',
     title: '前端开发者',
@@ -230,5 +257,5 @@ export const cnTranslator = [
       { icon: 'github', link: 'https://github.com/ShenQingchuan' },
       { icon: 'twitter', link: 'https://twitter.com/ShenQingchuan' }
     ],
-  },
+  },*/
 ]
