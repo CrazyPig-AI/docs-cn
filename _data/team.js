@@ -234,8 +234,8 @@ export const cnTranslator = [
     //sponsor: 'https://github.com/sponsors/sheneg',
   },
   {
-    avatar: 'https://avatars.githubusercontent.com/u/27673046?v=4',
-    name: 'zero-degree-personal-portal',
+    avatar: './avatar/adhc.jpg',
+    name: 'shenergui',
     title: 'Open Source Developer',
     org: 'CrazyPig.ai',
     orgLink: '',
